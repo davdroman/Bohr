@@ -21,7 +21,7 @@ True story.
 #### Carthage
 
 ```
-github "Dromaguirre/Bohr"
+github "DavdRoman/Bohr"
 ```
 
 #### CocoaPods
