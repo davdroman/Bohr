@@ -12,7 +12,7 @@ By default, Bohr supports multiple setting types such as strings, booleans or ti
 
 #### Why "Bohr"?
 
-"Bohr" comes from Neils Bohr, conceiver of an atomic model which introduces the concept of electronic ___configuration___, a way to organize electrons by layers around the atom nucleus.
+"Bohr" comes from Niels Bohr, conceiver of an atomic model which introduces the concept of electronic ___configuration___, a way to organize electrons by layers around the atom nucleus.
 
 True story.
 
