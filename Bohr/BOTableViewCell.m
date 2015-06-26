@@ -8,54 +8,28 @@
 
 #import "BOTableViewCell+Subclass.h"
 
-#import "BOTableViewController+Private.h"
 #import "BOSetting+Private.h"
-
-@interface BOTableViewCell ()
-
-@property (nonatomic, assign) UITableView *tableView;
-
-@end
+#import "BOTableViewController+Private.h"
 
 @implementation BOTableViewCell
 
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting {
-	return [[self alloc] initWithTitle:title setting:setting];
-}
-
-- (instancetype)initWithTitle:(NSString *)title setting:(BOSetting *)setting {
-	if (self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil]) {
-		self.clipsToBounds = YES;
-		self.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-		self.textLabel.text = title;
-		self.setting = setting;
-		
-		[self setup];
-	}
-	
-	return self;
-}
-
-- (void)willMoveToWindow:(UIWindow *)newWindow {
-	if (self.setting && !self.setting.valueDidChangeBlock) {
-		__unsafe_unretained typeof(self) _self = self;
-		self.setting.valueDidChangeBlock = ^{
-			[_self settingValueDidChange];
-		};
-		self.setting.valueDidChangeBlock();
-	}
+- (void)awakeFromNib {
+	self.clipsToBounds = YES;
+	self.selectionStyle = UITableViewCellSelectionStyleNone;
+	self.detailTextLabel.text = nil;
+	if (self.key) self.setting = [BOSetting settingWithKey:self.key];
+	[self setup];
 }
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x, 0, self.textLabel.frame.size.width, self.tableView.rowHeight);
-	self.detailTextLabel.frame = CGRectMake(self.detailTextLabel.frame.origin.x, 0, self.detailTextLabel.frame.size.width, self.tableView.rowHeight);
-}
-
-- (UITableView *)tableView {
-	return (UITableView *)self.superview.superview;
+	if (self.expansionHeight > 0 || self.contentView.subviews.count > 1) {
+		CGFloat yOffset = (self.layoutMargins.top-self.frame.size.height)/2;
+		
+		self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y+yOffset, self.textLabel.intrinsicContentSize.width, self.textLabel.frame.size.height);
+		self.detailTextLabel.center = CGPointMake(self.detailTextLabel.center.x, self.detailTextLabel.center.y+yOffset);
+	}
 }
 
 #pragma mark Customization
@@ -63,13 +37,11 @@
 - (void)setMainColor:(UIColor *)mainColor {
 	_mainColor = mainColor;
 	self.textLabel.textColor = mainColor;
-	[self updateAppearance];
 }
 
 - (void)setMainFont:(UIFont *)mainFont {
 	_mainFont = mainFont;
 	self.textLabel.font = mainFont;
-	[self updateAppearance];
 }
 
 - (void)setSecondaryColor:(UIColor *)secondaryColor {
@@ -77,42 +49,39 @@
 	self.textLabel.highlightedTextColor = [UIColor whiteColor];
 	self.detailTextLabel.textColor = secondaryColor;
 	self.detailTextLabel.highlightedTextColor = [UIColor whiteColor];
-	[self updateAppearance];
+	self.tintColor = secondaryColor;
 }
 
 - (void)setSecondaryFont:(UIFont *)secondaryFont {
 	_secondaryFont = secondaryFont;
 	self.detailTextLabel.font = secondaryFont;
-	[self updateAppearance];
 }
 
 - (void)setSelectedColor:(UIColor *)selectedColor {
 	_selectedColor = selectedColor;
-	
 	self.selectedBackgroundView = [UIView new];
 	self.selectedBackgroundView.backgroundColor = selectedColor;
 }
 
-- (void)removeFromSuperview {} // Disable cell reuse *completely*
-
 #pragma mark Subclassing
 
 - (void)setup {}
+- (void)setupConstraints {}
 - (void)updateAppearance {}
+- (CGFloat)expansionHeight {return 0;}
+- (NSString *)footerTitle {return nil;}
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	NSIndexPath *indexPath = [viewController.tableView indexPathForCell:self];
-	
 	if (self.expansionHeight > 0) {
-		viewController.expansionIndexPath = ![indexPath isEqual:viewController.expansionIndexPath] ? indexPath : nil;
+		viewController.expansionIndexPath = ![self.indexPath isEqual:viewController.expansionIndexPath] ? self.indexPath : nil;
 		
-		[viewController.tableView deselectRowAtIndexPath:indexPath animated:NO];
+		[viewController.tableView deselectRowAtIndexPath:self.indexPath animated:NO];
 		[viewController.tableView beginUpdates];
 		[viewController.tableView endUpdates];
-		[viewController.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+		[viewController.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 	} else {
 		if (self.accessoryType != UITableViewCellAccessoryDisclosureIndicator) {
-			[viewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[viewController.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
 		}
 	}
 }

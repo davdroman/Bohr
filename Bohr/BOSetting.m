@@ -10,14 +10,13 @@
 
 @implementation BOSetting
 
-+ (instancetype)settingWithDefaultValue:(id)defaultValue forKey:(NSString *)key {
-	return [[self alloc] initWithDefaultValue:defaultValue forKey:key];
++ (instancetype)settingWithKey:(NSString *)key {
+	return [[self alloc] initWithKey:key];
 }
 
-- (instancetype)initWithDefaultValue:(id)defaultValue forKey:(NSString *)key {
+- (instancetype)initWithKey:(NSString *)key {
 	if (self = [super init]) {
 		_key = key;
-		[[NSUserDefaults standardUserDefaults] registerDefaults:@{self.key: defaultValue}];
 		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:self.key options:NSKeyValueObservingOptionNew context:nil];
 	}
 	

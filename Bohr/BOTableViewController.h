@@ -10,7 +10,12 @@
 
 @interface BOTableViewController : UITableViewController
 
+@property (nonatomic, strong) IBInspectable UIColor *headerTitlesColor;
+@property (nonatomic, strong) UIFont *headerTitlesFont;
+
+@property (nonatomic, strong) IBInspectable UIColor *footerTitlesColor;
+@property (nonatomic, strong) UIFont *footerTitlesFont;
+
 - (void)setup;
-- (void)addSections:(NSArray *)sections;
 
 @end

@@ -12,20 +12,12 @@
 
 @implementation BOTextTableViewCell
 
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting placeholder:(NSString *)placeholder minimumTextLength:(NSInteger)minimumTextLength textFieldInputFailedBlock:(BOTextFieldInputErrorBlock)textFieldInputFailedBlock {
-	BOTextTableViewCell *cell = [super cellWithTitle:title setting:setting];
-	cell.textField.placeholder = placeholder;
-	cell.minimumTextLength = minimumTextLength;
-	cell.textFieldInputFailedBlock = textFieldInputFailedBlock;
-	return cell;
-}
-
 - (void)setup {
 	self.textField = [UITextField new];
 	self.textField.delegate = self;
 	self.textField.textAlignment = NSTextAlignmentRight;
 	self.textField.returnKeyType = UIReturnKeyDone;
-	[self.textField setContentVerticalAlignment:UIControlContentVerticalAlignmentFill];
+	self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	[self.contentView addSubview:self.textField];
 	
 	NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.textField attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField.superview attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
@@ -53,16 +45,20 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	if (self.minimumTextLength > 0 && [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""].length == 0) {
-		if (self.textFieldInputFailedBlock) self.textFieldInputFailedBlock(self, BOTextFieldInputEmptyError);
-	} else if (textField.text.length < self.minimumTextLength) {
-		if (self.textFieldInputFailedBlock) self.textFieldInputFailedBlock(self, BOTextFieldInputTooShortError);
-	} else {
-		self.setting.value = textField.text;
-		[textField endEditing:YES];
-	}
+	[textField endEditing:YES];
 	
 	return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	NSString *filteredText = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+	
+	if (filteredText.length < self.minimumTextLength) {
+		if (self.inputErrorBlock) self.inputErrorBlock(self, BOTextFieldInputTooShortError);
+		textField.text = self.setting.value;
+	} else {
+		self.setting.value = textField.text;
+	}
 }
 
 @end

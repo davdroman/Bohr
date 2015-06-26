@@ -13,38 +13,33 @@
 @interface BOTimeTableViewCell ()
 
 @property (nonatomic, strong) UIPickerView *timePickerView;
-@property (nonatomic) NSInteger minuteInterval;
 
 @end
 
 @implementation BOTimeTableViewCell
-
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting minuteInterval:(NSInteger)minuteInterval {
-	BOTimeTableViewCell *cell = [super cellWithTitle:title setting:setting];
-	cell.minuteInterval = minuteInterval;
-	return cell;
-}
 
 - (void)setup {
 	self.timePickerView = [UIPickerView new];
 	self.timePickerView.backgroundColor = [UIColor clearColor];
 	self.timePickerView.dataSource = self;
 	self.timePickerView.delegate = self;
-	
 	[self.contentView addSubview:self.timePickerView];
 	
-	NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.timePickerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.timePickerView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.timePickerView.superview attribute:NSLayoutAttributeTopMargin multiplier:1 constant:0];
 	NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.timePickerView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.timePickerView.superview attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
 	NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.timePickerView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.timePickerView.superview attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+	NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.timePickerView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:216];
 	
 	self.timePickerView.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.timePickerView.superview addConstraints:@[topConstraint, leftConstraint, rightConstraint]];
-	
-	self.expansionHeight = self.timePickerView.intrinsicContentSize.height;
+	[self.timePickerView.superview addConstraints:@[topConstraint, leftConstraint, rightConstraint, heightConstraint]];
 }
 
 - (void)updateAppearance {
 	[self.timePickerView reloadAllComponents];
+}
+
+- (CGFloat)expansionHeight {
+	return self.timePickerView.frame.size.height;
 }
 
 #pragma mark UIPickerViewDataSource

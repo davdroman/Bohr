@@ -8,20 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BOSetting.h"
-
 @interface BOTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) BOSetting *setting;
+@property (nonatomic, strong) IBInspectable NSString *key;
 
-@property (nonatomic, strong) UIColor *mainColor UI_APPEARANCE_SELECTOR;
-@property (nonatomic, strong) UIFont *mainFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) IBInspectable UIColor *mainColor;
+@property (nonatomic, strong) UIFont *mainFont; // Apple pls rdar://19973159
 
-@property (nonatomic, strong) UIColor *secondaryColor UI_APPEARANCE_SELECTOR;
-@property (nonatomic, strong) UIFont *secondaryFont UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) IBInspectable UIColor *secondaryColor;
+@property (nonatomic, strong) UIFont *secondaryFont;
 
-@property (nonatomic, strong) UIColor *selectedColor UI_APPEARANCE_SELECTOR;
-
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting;
+@property (nonatomic, strong) IBInspectable UIColor *selectedColor;
 
 @end

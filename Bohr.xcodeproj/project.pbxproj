@@ -7,27 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E56851B1CB01100075B6E /* BOTableViewSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56831B1CB01100075B6E /* BOTableViewSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E56861B1CB01100075B6E /* BOTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56841B1CB01100075B6E /* BOTableViewSection.m */; };
-		754E56891B1DFDB400075B6E /* BOSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56871B1DFDB400075B6E /* BOSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		754E56891B1DFDB400075B6E /* BOSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56871B1DFDB400075B6E /* BOSetting.h */; };
 		754E568A1B1DFDB400075B6E /* BOSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56881B1DFDB400075B6E /* BOSetting.m */; };
 		754E568D1B1FC16700075B6E /* BOSwitchTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E568B1B1FC16700075B6E /* BOSwitchTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		754E568E1B1FC16700075B6E /* BOSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */; };
-		754E56901B20647B00075B6E /* BOSetting+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E568F1B20647B00075B6E /* BOSetting+Private.h */; };
-		754E56921B20715600075B6E /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56911B20715600075B6E /* BOTableViewController+Private.h */; };
-		754E56951B2083DE00075B6E /* BOTimeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56931B2083DE00075B6E /* BOTimeTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E56961B2083DE00075B6E /* BOTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56941B2083DE00075B6E /* BOTimeTableViewCell.m */; };
-		754E56991B20C9D400075B6E /* BOButtonTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56971B20C9D400075B6E /* BOButtonTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E569A1B20C9D400075B6E /* BOButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56981B20C9D400075B6E /* BOButtonTableViewCell.m */; };
-		754E569D1B20CE6F00075B6E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E569C1B20CE6F00075B6E /* DetailViewController.m */; };
-		754E56A01B20CEB500075B6E /* BODisclosureTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E569E1B20CEB500075B6E /* BODisclosureTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E56A11B20CEB500075B6E /* BODisclosureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E569F1B20CEB500075B6E /* BODisclosureTableViewCell.m */; };
-		754E56A41B20D2FE00075B6E /* BOChoiceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56A21B20D2FE00075B6E /* BOChoiceTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		754E56A51B20D2FE00075B6E /* BOChoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56A31B20D2FE00075B6E /* BOChoiceTableViewCell.m */; };
+		7599AF461B2B29E000B253CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7599AF451B2B29E000B253CD /* Main.storyboard */; };
+		759E1B001B2BC31700AD8F38 /* BOTimeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56931B2083DE00075B6E /* BOTimeTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		759E1B011B2BC31700AD8F38 /* BOTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56941B2083DE00075B6E /* BOTimeTableViewCell.m */; };
+		75B6CE1C1B3756D800DADCBD /* BOOptionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 75B6CE1A1B3756D800DADCBD /* BOOptionTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75B6CE1D1B3756D800DADCBD /* BOOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CE1B1B3756D800DADCBD /* BOOptionTableViewCell.m */; };
+		75B6CE1E1B375DCA00DADCBD /* BOButtonTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56971B20C9D400075B6E /* BOButtonTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75B6CE1F1B375DCA00DADCBD /* BOButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56981B20C9D400075B6E /* BOButtonTableViewCell.m */; };
 		75C7ADD91B1AB3010050C8AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7ADD81B1AB3010050C8AA /* main.m */; };
 		75C7ADDC1B1AB3010050C8AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7ADDB1B1AB3010050C8AA /* AppDelegate.m */; };
-		75C7ADDF1B1AB3010050C8AA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7ADDE1B1AB3010050C8AA /* MainViewController.m */; };
+		75C7ADDF1B1AB3010050C8AA /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7ADDE1B1AB3010050C8AA /* TableViewController.m */; };
 		75C7ADE41B1AB3010050C8AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C7ADE31B1AB3010050C8AA /* Images.xcassets */; };
 		75C7ADE71B1AB3010050C8AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C7ADE51B1AB3010050C8AA /* LaunchScreen.xib */; };
 		75C7AE041B1AB3280050C8AA /* Bohr.h in Headers */ = {isa = PBXBuildFile; fileRef = 75C7AE031B1AB3280050C8AA /* Bohr.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,8 +31,12 @@
 		75C7AE221B1AB3480050C8AA /* BOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7AE201B1AB3480050C8AA /* BOTableViewController.m */; };
 		75C7AE291B1AB42A0050C8AA /* BOTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 75C7AE251B1AB42A0050C8AA /* BOTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75C7AE2A1B1AB42A0050C8AA /* BOTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75C7AE261B1AB42A0050C8AA /* BOTableViewCell.m */; };
-		75E02FE31B21F72C009698D3 /* BOTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		75E02FE41B21F72C009698D3 /* BOTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */; };
+		75E19B441B2BC76100C03FF6 /* BOChoiceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56A21B20D2FE00075B6E /* BOChoiceTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75E19B451B2BC76100C03FF6 /* BOChoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56A31B20D2FE00075B6E /* BOChoiceTableViewCell.m */; };
+		75E19B461B2BCCFE00C03FF6 /* BOTextTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75E19B471B2BCCFE00C03FF6 /* BOTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */; };
+		D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */; };
+		D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,31 +65,26 @@
 
 /* Begin PBXFileReference section */
 		754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewCell+Subclass.h"; sourceTree = "<group>"; };
-		754E56831B1CB01100075B6E /* BOTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOTableViewSection.h; sourceTree = "<group>"; };
-		754E56841B1CB01100075B6E /* BOTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTableViewSection.m; sourceTree = "<group>"; };
 		754E56871B1DFDB400075B6E /* BOSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOSetting.h; sourceTree = "<group>"; };
 		754E56881B1DFDB400075B6E /* BOSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOSetting.m; sourceTree = "<group>"; };
 		754E568B1B1FC16700075B6E /* BOSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOSwitchTableViewCell.h; sourceTree = "<group>"; };
 		754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOSwitchTableViewCell.m; sourceTree = "<group>"; };
-		754E568F1B20647B00075B6E /* BOSetting+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOSetting+Private.h"; sourceTree = "<group>"; };
-		754E56911B20715600075B6E /* BOTableViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewController+Private.h"; sourceTree = "<group>"; };
 		754E56931B2083DE00075B6E /* BOTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOTimeTableViewCell.h; sourceTree = "<group>"; };
 		754E56941B2083DE00075B6E /* BOTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTimeTableViewCell.m; sourceTree = "<group>"; };
 		754E56971B20C9D400075B6E /* BOButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOButtonTableViewCell.h; sourceTree = "<group>"; };
 		754E56981B20C9D400075B6E /* BOButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOButtonTableViewCell.m; sourceTree = "<group>"; };
-		754E569B1B20CE6F00075B6E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		754E569C1B20CE6F00075B6E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		754E569E1B20CEB500075B6E /* BODisclosureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BODisclosureTableViewCell.h; sourceTree = "<group>"; };
-		754E569F1B20CEB500075B6E /* BODisclosureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BODisclosureTableViewCell.m; sourceTree = "<group>"; };
 		754E56A21B20D2FE00075B6E /* BOChoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOChoiceTableViewCell.h; sourceTree = "<group>"; };
 		754E56A31B20D2FE00075B6E /* BOChoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOChoiceTableViewCell.m; sourceTree = "<group>"; };
+		7599AF451B2B29E000B253CD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		75B6CE1A1B3756D800DADCBD /* BOOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOptionTableViewCell.h; sourceTree = "<group>"; };
+		75B6CE1B1B3756D800DADCBD /* BOOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOOptionTableViewCell.m; sourceTree = "<group>"; };
 		75C7ADD31B1AB3010050C8AA /* BohrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BohrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C7ADD71B1AB3010050C8AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C7ADD81B1AB3010050C8AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75C7ADDA1B1AB3010050C8AA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		75C7ADDB1B1AB3010050C8AA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		75C7ADDD1B1AB3010050C8AA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		75C7ADDE1B1AB3010050C8AA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		75C7ADDD1B1AB3010050C8AA /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		75C7ADDE1B1AB3010050C8AA /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		75C7ADE31B1AB3010050C8AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75C7ADE61B1AB3010050C8AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		75C7ADFF1B1AB3280050C8AA /* Bohr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bohr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +96,8 @@
 		75C7AE261B1AB42A0050C8AA /* BOTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTableViewCell.m; sourceTree = "<group>"; };
 		75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOTextTableViewCell.h; sourceTree = "<group>"; };
 		75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOTextTableViewCell.m; sourceTree = "<group>"; };
+		D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewController+Private.h"; sourceTree = "<group>"; };
+		D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOSetting+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,10 +142,9 @@
 			children = (
 				75C7ADDA1B1AB3010050C8AA /* AppDelegate.h */,
 				75C7ADDB1B1AB3010050C8AA /* AppDelegate.m */,
-				75C7ADDD1B1AB3010050C8AA /* MainViewController.h */,
-				75C7ADDE1B1AB3010050C8AA /* MainViewController.m */,
-				754E569B1B20CE6F00075B6E /* DetailViewController.h */,
-				754E569C1B20CE6F00075B6E /* DetailViewController.m */,
+				7599AF451B2B29E000B253CD /* Main.storyboard */,
+				75C7ADDD1B1AB3010050C8AA /* TableViewController.h */,
+				75C7ADDE1B1AB3010050C8AA /* TableViewController.m */,
 				75C7ADD61B1AB3010050C8AA /* Supporting Files */,
 			);
 			path = BohrDemo;
@@ -173,9 +167,7 @@
 				75C7AE031B1AB3280050C8AA /* Bohr.h */,
 				75C7AE1F1B1AB3480050C8AA /* BOTableViewController.h */,
 				75C7AE201B1AB3480050C8AA /* BOTableViewController.m */,
-				754E56911B20715600075B6E /* BOTableViewController+Private.h */,
-				754E56831B1CB01100075B6E /* BOTableViewSection.h */,
-				754E56841B1CB01100075B6E /* BOTableViewSection.m */,
+				D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */,
 				75C7AE251B1AB42A0050C8AA /* BOTableViewCell.h */,
 				75C7AE261B1AB42A0050C8AA /* BOTableViewCell.m */,
 				754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */,
@@ -183,17 +175,17 @@
 				754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */,
 				75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */,
 				75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */,
-				754E56A21B20D2FE00075B6E /* BOChoiceTableViewCell.h */,
-				754E56A31B20D2FE00075B6E /* BOChoiceTableViewCell.m */,
 				754E56931B2083DE00075B6E /* BOTimeTableViewCell.h */,
 				754E56941B2083DE00075B6E /* BOTimeTableViewCell.m */,
-				754E569E1B20CEB500075B6E /* BODisclosureTableViewCell.h */,
-				754E569F1B20CEB500075B6E /* BODisclosureTableViewCell.m */,
+				754E56A21B20D2FE00075B6E /* BOChoiceTableViewCell.h */,
+				754E56A31B20D2FE00075B6E /* BOChoiceTableViewCell.m */,
+				75B6CE1A1B3756D800DADCBD /* BOOptionTableViewCell.h */,
+				75B6CE1B1B3756D800DADCBD /* BOOptionTableViewCell.m */,
 				754E56971B20C9D400075B6E /* BOButtonTableViewCell.h */,
 				754E56981B20C9D400075B6E /* BOButtonTableViewCell.m */,
 				754E56871B1DFDB400075B6E /* BOSetting.h */,
 				754E56881B1DFDB400075B6E /* BOSetting.m */,
-				754E568F1B20647B00075B6E /* BOSetting+Private.h */,
+				D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */,
 				75C7AE011B1AB3280050C8AA /* Supporting Files */,
 			);
 			path = Bohr;
@@ -214,20 +206,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */,
 				754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */,
+				75E19B461B2BCCFE00C03FF6 /* BOTextTableViewCell.h in Headers */,
 				75C7AE041B1AB3280050C8AA /* Bohr.h in Headers */,
-				75E02FE31B21F72C009698D3 /* BOTextTableViewCell.h in Headers */,
-				754E56A41B20D2FE00075B6E /* BOChoiceTableViewCell.h in Headers */,
-				754E56901B20647B00075B6E /* BOSetting+Private.h in Headers */,
 				75C7AE211B1AB3480050C8AA /* BOTableViewController.h in Headers */,
-				754E56951B2083DE00075B6E /* BOTimeTableViewCell.h in Headers */,
+				75E19B441B2BC76100C03FF6 /* BOChoiceTableViewCell.h in Headers */,
 				754E56891B1DFDB400075B6E /* BOSetting.h in Headers */,
-				754E56A01B20CEB500075B6E /* BODisclosureTableViewCell.h in Headers */,
 				754E568D1B1FC16700075B6E /* BOSwitchTableViewCell.h in Headers */,
+				75B6CE1C1B3756D800DADCBD /* BOOptionTableViewCell.h in Headers */,
 				75C7AE291B1AB42A0050C8AA /* BOTableViewCell.h in Headers */,
-				754E56851B1CB01100075B6E /* BOTableViewSection.h in Headers */,
-				754E56921B20715600075B6E /* BOTableViewController+Private.h in Headers */,
-				754E56991B20C9D400075B6E /* BOButtonTableViewCell.h in Headers */,
+				759E1B001B2BC31700AD8F38 /* BOTimeTableViewCell.h in Headers */,
+				75B6CE1E1B375DCA00DADCBD /* BOButtonTableViewCell.h in Headers */,
+				D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +272,11 @@
 				TargetAttributes = {
 					75C7ADD21B1AB3010050C8AA = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 928NVD8D9L;
 					};
 					75C7ADFE1B1AB3280050C8AA = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 928NVD8D9L;
 					};
 				};
 			};
@@ -311,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7599AF461B2B29E000B253CD /* Main.storyboard in Resources */,
 				75C7ADE71B1AB3010050C8AA /* LaunchScreen.xib in Resources */,
 				75C7ADE41B1AB3010050C8AA /* Images.xcassets in Resources */,
 			);
@@ -330,10 +324,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75C7ADDF1B1AB3010050C8AA /* MainViewController.m in Sources */,
+				75C7ADDF1B1AB3010050C8AA /* TableViewController.m in Sources */,
 				75C7ADDC1B1AB3010050C8AA /* AppDelegate.m in Sources */,
 				75C7ADD91B1AB3010050C8AA /* main.m in Sources */,
-				754E569D1B20CE6F00075B6E /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,15 +335,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				75C7AE2A1B1AB42A0050C8AA /* BOTableViewCell.m in Sources */,
-				754E56961B2083DE00075B6E /* BOTimeTableViewCell.m in Sources */,
-				754E56A51B20D2FE00075B6E /* BOChoiceTableViewCell.m in Sources */,
 				75C7AE221B1AB3480050C8AA /* BOTableViewController.m in Sources */,
 				754E568A1B1DFDB400075B6E /* BOSetting.m in Sources */,
-				754E569A1B20C9D400075B6E /* BOButtonTableViewCell.m in Sources */,
+				75B6CE1F1B375DCA00DADCBD /* BOButtonTableViewCell.m in Sources */,
 				754E568E1B1FC16700075B6E /* BOSwitchTableViewCell.m in Sources */,
-				754E56861B1CB01100075B6E /* BOTableViewSection.m in Sources */,
-				754E56A11B20CEB500075B6E /* BODisclosureTableViewCell.m in Sources */,
-				75E02FE41B21F72C009698D3 /* BOTextTableViewCell.m in Sources */,
+				759E1B011B2BC31700AD8F38 /* BOTimeTableViewCell.m in Sources */,
+				75B6CE1D1B3756D800DADCBD /* BOOptionTableViewCell.m in Sources */,
+				75E19B471B2BCCFE00C03FF6 /* BOTextTableViewCell.m in Sources */,
+				75E19B451B2BC76100C03FF6 /* BOChoiceTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +398,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -431,6 +424,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,6 +448,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -472,6 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -495,6 +491,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -526,6 +523,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -551,6 +549,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -575,6 +574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
