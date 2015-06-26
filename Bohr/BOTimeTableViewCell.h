@@ -10,6 +10,6 @@
 
 @interface BOTimeTableViewCell : BOTableViewCell <UIPickerViewDataSource, UIPickerViewDelegate>
 
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting minuteInterval:(NSInteger)minuteInterval;
+@property (nonatomic) IBInspectable NSInteger minuteInterval;
 
 @end

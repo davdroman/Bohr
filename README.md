@@ -8,11 +8,11 @@ Bohr allows you to set up a settings screen for your app with three principles i
 	<img src="Assets/1.gif" alt="GIF 1" width="320px" />
 </p>
 
-By default, Bohr supports multiple setting types such as strings, booleans or times. However, this framework has been built focusing a lot of attention in extensibility, meaning you can build your own custom classes to support any kind of setting type you want.
+By default, Bohr supports multiple setting types such as strings, booleans or times. However, this framework has been built with extensibility in mind, meaning you can build your own custom classes to support any kind of setting type you want.
 
 #### Why "Bohr"?
 
-"Bohr" comes from Neils Bohr, conceiver of an atomic model which introduces the concept of electronic ___configuration___, a way to organize electrons by layers around the atom nucleus.
+"Bohr" comes from Niels Bohr, conceiver of an atomic model which introduces the concept of electronic ___configuration___, a way to organize electrons by layers around the atom nucleus.
 
 True story.
 
@@ -36,35 +36,43 @@ Drag and copy all files in the [__Bohr__](Bohr) folder into your project.
 
 ## At a glance
 
-#### Setup
+#### Basic setup
 
-The settings screen you're going to set up is represented by a `UITableViewController` subclass called `BOTableViewController`. Such controller manages `BOTableViewSection` instances, which manages a set of `BOTableViewCell` instances.
+The settings screen you're going to set up is represented by a `UITableViewController` subclass called `BOTableViewController`.
 
-All you need to start building your settings screen is a `BOTableViewController` (or subclass) instance, which you'll initialize:
+<p align="center">
+	<img src="Assets/1.png" alt="PNG 1" />
+</p>
 
-```objective-c
-BOTableViewController *tableViewController = [[BOTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-```
+Set the `UITableViewController` class to `BOTableViewController` o a subclass of it.
 
-_Note: you may use `UITableViewStylePlain` too, but keep in mind most apps use `UITableViewStyleGrouped`_.
+<p align="center">
+	<img src="Assets/2.png" alt="PNG 2" />
+</p>
 
-Next, we'll add a section to our view controller:
+Make sure to make the `UITableView` static and (optionally) grouped.
 
-```objective-c
-BOTableViewSection *section = [BOTableViewSection sectionWithTitle:@"My section"];
-[tableViewController addSections:@[section]];
-```
+<p align="center">
+	<img src="Assets/3.png" alt="PNG 3" />
+</p>
 
-_Note: you may add your sections and cells in a subclass of `BOTableViewController`. In case you decide to do so, there's a `setup` method where you can, well... do the setup._
+Set each cell class to the desired `BOTableViewCell` subclass.
 
-And finally, we'll add some cells to our section (for the sake of simplicity, I'll add just one):
+<p align="center">
+	<img src="Assets/4.png" alt="PNG 4" />
+</p>
 
-```objective-c
-BOSwitchTableViewCell *switchCell = [BOSwitchTableViewCell cellWithTitle:@"Switch option" setting:[BOSetting settingWithDefaultValue:@YES forKey:@"key_for_bool_option"]];
-[section addCells:@[switchCell]];
-```
+Set each cell style to detail. Sometimes basic style is enough to make it work since not every cell needs a detail label, but in case of doubt detail style will work just fine.
 
-_Note: `BOSetting` is a simple object that defines the setting the cell will represent through a `key` and a `value` property. It also takes care of some business to make the `NSUserDefaults` logic layer easier to manage, but you don't need to worry about that at all._
+<p align="center">
+	<img src="Assets/5.png" alt="PNG 5" />
+</p>
+
+Finally, set the key of the cell to the desired value.
+
+<p align="center">
+	<img src="Assets/6.png" alt="PNG 6" width="260" />
+</p>
 
 #### Built-in BOTableViewCell's
 
@@ -72,18 +80,22 @@ As mentioned before, there's a bunch of built-in BOTableViewCell subclasses read
 
 - `BOSwitchTableViewCell`: manages `BOOL` values through a `UISwitch` control.
 - `BOTextTableViewCell`: manages `NSString` values through a `UITextField` control.
-- `BOChoiceTableViewCell`: manages `NSInteger` values (which you can understand as "options" from a `NS_ENUM`) through taps on the cell itself.
 - `BOTimeTableViewCell`: manages `NSInteger` values that represent a given time as the minute interval from midnight to such time. A revealing `UIPickerView` is used to set the time.
-- `BODisclosureTableViewCell`: this cell is used to pushes a view controller from the current one. Note your `BOTableViewController` needs to be embedded in a `UINavigationController` in order for this cell to work.
+- `BOChoiceTableViewCell`: manages `NSInteger` values (which you can understand as "options" from a `NS_ENUM`) through taps on the cell itself.
+- `BOOptionTableViewCell`: manages a single `NSInteger` value (which you can understand as an "option" from a `NS_ENUM`) depending on its position in its table view section. When selected, a checkmark appears on the right side.
 - `BOButtonTableViewCell`: allows the user to perform an action when the cell is tapped.
-
-Again, this framework is all about extensibility, so if you want to provide your own implementation for any kind of setting type you can. Read below to know how.
 
 #### Subclassing BOTableViewCell
 
-Creating a subclass of BOTableViewCell is fairly straighforward.
+Building a `BOTableViewCell` subclass is fairly straightforward.
 
-First of all, the framework contains a header file called `BOTableViewCell+Subclass.h`. You must import that header in your subclass implementation file. That way, you'll be able to access all the necessary methods for you to implement them in your subclass:
+First of all, the framework contains a header file called `BOTableViewCell+Subclass.h`. You must import that header in your subclass implementation file:
+
+```obj-c
+#import <Bohr/BOTableViewCell+Subclass.h>
+```
+
+That way you'll be able to access all the necessary methods for you to implement in your subclass:
 
 - `setup`: used to set up the cell for the first time.
 - `updateAppearance`: any code that defines the appearance of the cell should be put here. Note every `BOTableViewCell` instance contains 4 properties used to define its style:
@@ -91,12 +103,12 @@ First of all, the framework contains a header file called `BOTableViewCell+Subcl
 	- `mainFont`: the font used for the title and other main elements of the cell.
 	- `secondaryColor`: the color used for the detail text and other secondary elements of the cell.
 	- `secondaryFont`: the font used for the detail text and other secondary elements of the cell.
+- `expansionHeight`: the cell height will be expanded to the value returned by this method when tapped.
+- `footerTitle`: the footer text to be displayed as a result of a setting value being modified.
 - `wasSelectedFromViewController:`: called when the cell is tapped. The `BOTableViewController` where the cell is contained is passed.
-- `settingValueDidChange`: called when the `NSUserDefault` value associated with the cell changes. You must represent such change in the visual element of your cell. Accessing that new value is as simple as calling `self.setting.value`.
+- `settingValueDidChange`: called when the `NSUserDefault` value associated with the cell changes. You must represent such change through some visual element on your cell. Accessing that new value is as simple as calling `self.setting.value`.
 
-There's also a property called `expansionHeight`. If you set that property (preferably in `setup`), the cell height will be expanded when tapped. That extra height is determined by `expansionHeight` itself. As a side note, you shouldn't override `wasSelectedFromViewController:` if you set `expansionHeight`, and if you do, please make sure to always call `super`.
-
-Please take a look to the implementation code of `BOSwitchTableViewCell` for a more detailed demonstration on how to subclass `BOTableViewCell`.
+Please take a look to the implementation of `BOSwitchTableViewCell` for a more detailed demonstration on how to subclass `BOTableViewCell`.
 
 ## License
 

@@ -9,19 +9,16 @@
 #import "BOTableViewCell.h"
 
 typedef NS_ENUM(NSInteger, BOTextFieldInputError) {
-	BOTextFieldInputEmptyError,
 	BOTextFieldInputTooShortError
 };
 
-@class BOTextTableViewCell;
-typedef void(^BOTextFieldInputErrorBlock)(BOTextTableViewCell *cell, BOTextFieldInputError error);
-
 @interface BOTextTableViewCell : BOTableViewCell <UITextFieldDelegate>
 
-@property (nonatomic, strong) UITextField *textField;
-@property (nonatomic) NSInteger minimumTextLength;
-@property (nonatomic, copy) BOTextFieldInputErrorBlock textFieldInputFailedBlock;
+typedef void(^BOTextFieldInputErrorBlock)(BOTextTableViewCell *cell, BOTextFieldInputError error);
 
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting placeholder:(NSString *)placeholder minimumTextLength:(NSInteger)minimumTextLength textFieldInputFailedBlock:(BOTextFieldInputErrorBlock)textFieldInputFailedBlock;
+@property (nonatomic, strong) UITextField *textField;
+
+@property (nonatomic) IBInspectable NSInteger minimumTextLength;
+@property (nonatomic, copy) BOTextFieldInputErrorBlock inputErrorBlock;
 
 @end

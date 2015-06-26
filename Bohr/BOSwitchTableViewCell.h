@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) UISwitch *toggleSwitch;
 
+@property (nonatomic, strong) IBInspectable NSString *onFooterTitle;
+@property (nonatomic, strong) IBInspectable NSString *offFooterTitle;
+
 @end

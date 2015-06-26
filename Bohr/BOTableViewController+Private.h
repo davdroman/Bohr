@@ -1,15 +1,15 @@
 //
 //  BOTableViewController+Private.h
-//  Bohr
+//  
 //
-//  Created by David Román Aguirre on 4/6/15.
-//  Copyright (c) 2015 David Roman. All rights reserved.
+//  Created by David Roman on 24/6/15.
+//
 //
 
 #import "BOTableViewController.h"
 
 @interface BOTableViewController ()
 
-@property (nonatomic, strong) NSIndexPath *expansionIndexPath;
+@property (nonatomic) NSIndexPath *expansionIndexPath;
 
 @end

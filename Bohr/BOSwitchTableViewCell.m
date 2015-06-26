@@ -28,12 +28,18 @@
 	self.toggleSwitch.onTintColor = self.secondaryColor;
 }
 
+- (NSString *)footerTitle {
+	BOOL settingValue = [self.setting.value boolValue];
+	
+	return settingValue ? self.onFooterTitle : self.offFooterTitle;
+}
+
 - (void)toggleSwitchValueDidChange {
 	self.setting.value = @(self.toggleSwitch.on);
 }
 
 - (void)settingValueDidChange {
-	[self.toggleSwitch setOn:[self.setting.value boolValue] animated:self.superview];
+	[self.toggleSwitch setOn:[self.setting.value boolValue] animated:[UIView areAnimationsEnabled]];
 }
 
 @end

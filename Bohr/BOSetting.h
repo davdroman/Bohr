@@ -13,6 +13,6 @@
 @property (nonatomic, readonly) NSString *key;
 @property (nonatomic, assign) id value;
 
-+ (instancetype)settingWithDefaultValue:(id)defaultValue forKey:(NSString *)key;
++ (instancetype)settingWithKey:(NSString *)key;
 
 @end

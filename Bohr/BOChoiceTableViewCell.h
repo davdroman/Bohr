@@ -10,6 +10,8 @@
 
 @interface BOChoiceTableViewCell : BOTableViewCell
 
-+ (instancetype)cellWithTitle:(NSString *)title setting:(BOSetting *)setting options:(NSArray *)options;
+@property (nonatomic, strong) NSArray *options;
+
+@property (nonatomic, strong) IBInspectable NSArray *footerTitles;
 
 @end

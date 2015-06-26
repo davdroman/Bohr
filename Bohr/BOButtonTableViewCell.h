@@ -10,6 +10,9 @@
 
 @interface BOButtonTableViewCell : BOTableViewCell
 
-+ (instancetype)cellWithTitle:(NSString *)title didTriggerBlock:(void (^)(void))didTriggerBlock;
+@property (nonatomic) id target;
+@property (nonatomic) SEL action;
+
+- (void)setTarget:(id)target action:(SEL)action;
 
 @end
