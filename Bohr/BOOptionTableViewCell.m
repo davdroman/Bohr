@@ -3,7 +3,7 @@
 //  Bohr
 //
 //  Created by David Román Aguirre on 21/6/15.
-//
+//  Copyright (c) 2015 David Roman. All rights reserved.
 //
 
 #import "BOOptionTableViewCell.h"
@@ -17,8 +17,6 @@
 }
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	[super wasSelectedFromViewController:viewController];
-	
 	NSInteger optionIndex = [viewController.tableView indexPathForCell:self].row;
 	self.setting.value = @(optionIndex);
 }

@@ -44,7 +44,7 @@ The settings screen you're going to set up is represented by a `UITableViewContr
 	<img src="Assets/1.png" alt="PNG 1" />
 </p>
 
-Set the `UITableViewController` class to `BOTableViewController` o a subclass of it.
+Set the `UITableViewController` class to `BOTableViewController` or a subclass of it.
 
 <p align="center">
 	<img src="Assets/2.png" alt="PNG 2" />
@@ -76,7 +76,7 @@ Finally, set the key of the cell to the desired value.
 
 #### Built-in BOTableViewCell's
 
-As mentioned before, there's a bunch of built-in BOTableViewCell subclasses ready to be used:
+As mentioned before, there's a bunch of built-in `BOTableViewCell` subclasses ready to be used:
 
 - `BOSwitchTableViewCell`: manages `BOOL` values through a `UISwitch` control.
 - `BOTextTableViewCell`: manages `NSString` values through a `UITextField` control.
