@@ -20,8 +20,6 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	[super wasSelectedFromViewController:viewController];
-	
 	if ([self.target respondsToSelector:self.action]) {
 		[self.target performSelector:self.action];
 	}

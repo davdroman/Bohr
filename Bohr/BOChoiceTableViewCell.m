@@ -27,8 +27,6 @@
 }
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	[super wasSelectedFromViewController:viewController];
-	
 	if (self.accessoryType != UITableViewCellAccessoryDisclosureIndicator) {
 		NSInteger currentOption = [self.setting.value integerValue];
 		

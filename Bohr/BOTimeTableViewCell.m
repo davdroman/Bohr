@@ -70,11 +70,11 @@
 	
 	switch (component) {
 		case 0:
-			title = [NSString stringWithFormat:@"%@%li", row < 10 ? @"0" : @"", row];
+			title = [NSString stringWithFormat:@"%@%li", row < 10 ? @"0" : @"", (long)row];
 			break;
 			
 		case 1:
-			title = [NSString stringWithFormat:@"%@%li", row*self.minuteInterval < 10 ? @"0" : @"", row*self.minuteInterval];
+			title = [NSString stringWithFormat:@"%@%li", row*self.minuteInterval < 10 ? @"0" : @"", (long)(row*self.minuteInterval)];
 			break;
 	}
 	
@@ -133,8 +133,8 @@
 	NSInteger hours = [self hoursForSettingValue];
 	NSInteger minutes = [self minutesForSettingValue];
 	
-	NSString *hoursString = [[NSString alloc] initWithFormat:@"%@%li", hours < 10 ? @"0" : @"", hours];
-	NSString *minutesString = [[NSString alloc] initWithFormat:@"%@%li", minutes < 10 ? @"0" : @"", minutes];
+	NSString *hoursString = [[NSString alloc] initWithFormat:@"%@%li", hours < 10 ? @"0" : @"", (long)hours];
+	NSString *minutesString = [[NSString alloc] initWithFormat:@"%@%li", minutes < 10 ? @"0" : @"", (long)minutes];
 	
 	NSString *timeString = [[NSString alloc] initWithFormat:@"%@:%@", hoursString, minutesString];
 	

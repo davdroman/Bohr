@@ -34,30 +34,10 @@
 	[self.tableView endEditing:YES];
 }
 
-- (NSArray *)footerViews {
-	if (!_footerViews) {
-		_footerViews = [NSArray new];
-		
-		for (NSInteger i = 0; i < [self.tableView numberOfSections]; i++) {
-			NSString *footerTitle = [self tableView:self.tableView titleForFooterInSection:i];
-			
-			if (footerTitle) {
-				UITableViewHeaderFooterView *footerView = [UITableViewHeaderFooterView new];
-				_footerViews = [_footerViews arrayByAddingObject:footerView];
-			} else {
-				_footerViews = [_footerViews arrayByAddingObject:[NSNull null]];
-			}
-		}
-	}
-	
-	return _footerViews;
-}
+// Apple pls http://blog.supertop.co/post/80781694515/viewmightappear
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	
-	[self.tableView beginUpdates];
-	[self.tableView endUpdates];
 	
 	NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
 	
@@ -72,7 +52,7 @@
 	}
 }
 
-// Apple pls http://blog.supertop.co/post/80781694515/viewmightappear
+#pragma mark Headers & cells
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
 	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
@@ -118,49 +98,65 @@
 	}
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	BOTableViewCell *cell = (BOTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+	
+	if (cell.expansionHeight > 0) {
+		self.expansionIndexPath = ![cell.indexPath isEqual:self.expansionIndexPath] ? cell.indexPath : nil;
+		
+		[self.tableView deselectRowAtIndexPath:cell.indexPath animated:NO];
+		[self.tableView beginUpdates];
+		[self.tableView endUpdates];
+		[self.tableView scrollToRowAtIndexPath:cell.indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+	} else {
+		if (cell.accessoryType != UITableViewCellAccessoryDisclosureIndicator) {
+			[self.tableView deselectRowAtIndexPath:cell.indexPath animated:YES];
+		}
+	}
+	
+	if ([cell respondsToSelector:@selector(wasSelectedFromViewController:)]) [cell wasSelectedFromViewController:self];
+}
+
+#pragma mark Dynamic footers
+
+- (NSArray *)footerViews {
+	if (!_footerViews) {
+		_footerViews = [NSArray new];
+		
+		for (NSInteger i = 0; i < [self.tableView numberOfSections]; i++) {
+			UITableViewHeaderFooterView *footerView = [UITableViewHeaderFooterView new];
+			_footerViews = [_footerViews arrayByAddingObject:footerView];
+		}
+	}
+	
+	return _footerViews;
+}
+
 - (void)reloadTableView {
 	[UIView performWithoutAnimation:^{
-		[self updateFooters];
 		[self.tableView beginUpdates];
 		[self.tableView endUpdates];
 	}];
 }
 
-- (void)updateFooters {
-	for (NSInteger i = 0; i < [self.tableView numberOfSections]; i++) {
-		NSString *footerTitle = [self tableView:self.tableView titleForFooterInSection:i];
-		UITableViewHeaderFooterView *footerView = self.footerViews[i];
-		if (![footerView isEqual:[NSNull null]]) {
-			footerView.textLabel.text = footerTitle;
-			[footerView sizeToFit];
-		}
-	}
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	BOTableViewCell *cell = (BOTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-	if ([cell respondsToSelector:@selector(wasSelectedFromViewController:)]) [cell wasSelectedFromViewController:self];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 	UITableViewHeaderFooterView *footerView = self.footerViews[section];
+	footerView.textLabel.text = [self tableView:tableView titleForFooterInSection:section];
 	
-	if (![footerView isEqual:[NSNull null]]) {
-		footerView.textLabel.text = [self tableView:tableView titleForFooterInSection:section];
-		return footerView;
-	}
-	
-	return nil;
+	return [super tableView:tableView heightForFooterInSection:section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+	// First, we get the super value, and if it's nil we set it to an empty string (this is the lowest priority for dynamic footers).
 	NSString *footerTitle = [super tableView:self.tableView titleForFooterInSection:section];
 	if (!footerTitle) footerTitle = @"";
 	
+	// Next, we try to find an existing footer in the last cell of the section (this is the medium priority for dynamic footers).
 	NSInteger numberOfRows = [super tableView:self.tableView numberOfRowsInSection:section];
 	BOTableViewCell *lastCell = (BOTableViewCell *)[super tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:numberOfRows-1 inSection:section]];
 	if ([lastCell isKindOfClass:[BOTableViewCell class]] && [lastCell footerTitle]) footerTitle = [lastCell footerTitle];
 	
+	// Finally, we try to find an existing footer in any cell that has a checkmark accessory on it (this is the top priority for dynamic footers).
 	for (NSInteger i = 0; i < numberOfRows; i++) {
 		BOTableViewCell *cell = (BOTableViewCell *)[super tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
 		
@@ -170,6 +166,11 @@
 	}
 	
 	return footerTitle;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+	UITableViewHeaderFooterView *footerView = self.footerViews[section];
+	return footerView;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {

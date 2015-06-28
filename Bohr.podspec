@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name                  = "Bohr"
-  s.version               = "2.0.0"
+  s.version               = "2.0.1"
   s.summary               = "Settings screen composing framework"
   s.homepage              = "https://github.com/DavdRoman/Bohr"
-  s.author                = { "David Roman" => "d@vidroman.me" }
+  s.author                = { "David Román" => "d@vidroman.me" }
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
 
   s.platform              = :ios, '8.0'

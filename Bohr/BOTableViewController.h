@@ -10,12 +10,19 @@
 
 @interface BOTableViewController : UITableViewController
 
+/// The text color for all the headers in the table view.
 @property (nonatomic, strong) IBInspectable UIColor *headerTitlesColor;
+
+/// The text font for all the headers in the table view.
 @property (nonatomic, strong) UIFont *headerTitlesFont;
 
+/// The text color for all the footers in the table view.
 @property (nonatomic, strong) IBInspectable UIColor *footerTitlesColor;
+
+/// The text font for all the footers in the table view.
 @property (nonatomic, strong) UIFont *footerTitlesFont;
 
+/// The setup method for the controller.
 - (void)setup;
 
 @end

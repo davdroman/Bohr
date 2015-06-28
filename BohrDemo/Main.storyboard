@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="566"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="0.95999999999999996" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Section 1" id="4ih-jm-7c4">
                                 <cells>
@@ -244,7 +244,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="566"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="wJS-Lj-acb">
                                 <cells>

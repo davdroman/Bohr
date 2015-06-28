@@ -70,22 +70,7 @@
 - (void)updateAppearance {}
 - (CGFloat)expansionHeight {return 0;}
 - (NSString *)footerTitle {return nil;}
-
-- (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	if (self.expansionHeight > 0) {
-		viewController.expansionIndexPath = ![self.indexPath isEqual:viewController.expansionIndexPath] ? self.indexPath : nil;
-		
-		[viewController.tableView deselectRowAtIndexPath:self.indexPath animated:NO];
-		[viewController.tableView beginUpdates];
-		[viewController.tableView endUpdates];
-		[viewController.tableView scrollToRowAtIndexPath:self.indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-	} else {
-		if (self.accessoryType != UITableViewCellAccessoryDisclosureIndicator) {
-			[viewController.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
-		}
-	}
-}
-
+- (void)wasSelectedFromViewController:(BOTableViewController *)viewController {}
 - (void)settingValueDidChange {}
 
 @end
