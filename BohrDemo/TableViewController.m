@@ -15,6 +15,7 @@
 	self.choiceCell.options = @[@"Option 1", @"Option 2", @"Option 3"];
 	self.choiceDisclosureCell.options = @[@"Option 1", @"Option 2", @"Option 3", @"Option 4"];
 	[self.buttonCell setTarget:self action:@selector(showButtonAlert)];
+	self.buttonCell.defaultFooterTitle = @"Static footer set programatically";
 }
 
 - (void)presentAlertControllerWithTitle:(NSString *)title message:(NSString *)message {

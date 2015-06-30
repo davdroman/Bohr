@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="8aG-sl-DjW" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="58" sectionHeaderHeight="10" sectionFooterHeight="10" id="09h-NJ-dhl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="566"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="549"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,6 +58,7 @@
                                         <animations/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="key" value="bool_2"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="defaultFooterTitle" value="Footer"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="onFooterTitle" value="Switch setting 2 is on"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="offFooterTitle" value="Switch setting 2 is off"/>
                                         </userDefinedRuntimeAttributes>
@@ -185,7 +186,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section 3" footerTitle="Static footer title" id="Icm-lX-mZf">
+                            <tableViewSection headerTitle="Section 3" footerTitle="" id="Icm-lX-mZf">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="DQG-u9-VyJ" style="IBUITableViewCellStyleDefault" id="2FQ-3G-mgv" customClass="BOButtonTableViewCell">
                                         <rect key="frame" x="0.0" y="79" width="600" height="44"/>
@@ -216,7 +217,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Bohr" id="2nX-kh-Bmg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="630"/>
+                    <size key="freeformSize" width="600" height="613"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="footerTitlesColor">
                             <color key="value" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
@@ -241,7 +242,7 @@
             <objects>
                 <tableViewController id="mPI-tq-cz0" customClass="BOTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="58" sectionHeaderHeight="10" sectionFooterHeight="10" id="UYq-iK-MLW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="566"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="549"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="calibratedWhite"/>
