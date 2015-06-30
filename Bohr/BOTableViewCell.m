@@ -69,7 +69,7 @@
 - (void)setupConstraints {}
 - (void)updateAppearance {}
 - (CGFloat)expansionHeight {return 0;}
-- (NSString *)footerTitle {return nil;}
+- (NSString *)footerTitle {return self.defaultFooterTitle;}
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {}
 - (void)settingValueDidChange {}
 

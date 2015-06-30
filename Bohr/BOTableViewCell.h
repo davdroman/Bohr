@@ -28,4 +28,7 @@
 /// The color for the selected state of the cell.
 @property (nonatomic, strong) IBInspectable UIColor *selectedColor;
 
+/// The default footer title for the cell.
+@property (nonatomic, strong) IBInspectable NSString *defaultFooterTitle;
+
 @end

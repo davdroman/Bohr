@@ -29,9 +29,11 @@
 }
 
 - (NSString *)footerTitle {
-	BOOL settingValue = [self.setting.value boolValue];
+	if (self.onFooterTitle || self.offFooterTitle) {
+		return [self.setting.value boolValue] ? self.onFooterTitle : self.offFooterTitle;
+	}
 	
-	return settingValue ? self.onFooterTitle : self.offFooterTitle;
+	return [super footerTitle];
 }
 
 - (void)toggleSwitchValueDidChange {
