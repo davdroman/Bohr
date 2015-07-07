@@ -10,9 +10,7 @@
 
 @interface BODateTableViewCell : BOTableViewCell
 
-/// The minimum date to be showed on the date picker view.
-//@property (nonatomic) IBInspectable NSString *minimumDate;
-/// The maximum date to be showed on the date picker view.
-//@property (nonatomic) IBInspectable NSString *maximumDate;
+// Date DIsplay Format
+@property (nonatomic) IBInspectable NSString *dateFormat;
 
 @end

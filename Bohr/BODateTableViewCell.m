@@ -39,7 +39,8 @@
     // Date formatter settings
     self.dateFormatter = [NSDateFormatter new];
     self.dateFormatter.timeZone = [NSTimeZone systemTimeZone];
-    [self.dateFormatter setDateFormat:@"dd MMM yyyy"];
+    NSString *dateFormatt = self.dateFormat.length==0 ? @"dd MMM YYYY" : self.dateFormat;
+    [self.dateFormatter setDateFormat:dateFormatt];
     
 }
 
