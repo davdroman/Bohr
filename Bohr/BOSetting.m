@@ -10,17 +10,19 @@
 
 @implementation BOSetting
 
-+ (instancetype)settingWithKey:(NSString *)key {
-	return [[self alloc] initWithKey:key];
-}
-
 - (instancetype)initWithKey:(NSString *)key {
-	if (self = [super init]) {
-		_key = key;
-		[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:self.key options:NSKeyValueObservingOptionNew context:nil];
+	if (key) {
+		if (self = [super init]) {
+			_key = key;
+			[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:self.key options:NSKeyValueObservingOptionNew context:nil];
+		}
 	}
 	
 	return self;
+}
+
++ (instancetype)settingWithKey:(NSString *)key {
+	return [[self alloc] initWithKey:key];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -38,8 +40,13 @@
 	}
 }
 
+- (void)setValueDidChangeBlock:(void (^)(void))valueDidChangeBlock {
+	_valueDidChangeBlock = valueDidChangeBlock;
+	if (valueDidChangeBlock) valueDidChangeBlock();
+}
+
 - (void)dealloc {
-	[[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:self.key];
+	if (self.key) [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:self.key];
 }
 
 @end

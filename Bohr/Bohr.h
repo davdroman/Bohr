@@ -15,6 +15,7 @@ FOUNDATION_EXPORT double BohrVersionNumber;
 FOUNDATION_EXPORT const unsigned char BohrVersionString[];
 
 #import <Bohr/BOTableViewController.h>
+#import <Bohr/BOTableViewSection.h>
 #import <Bohr/BOTableViewCell.h>
 
 #import <Bohr/BOSwitchTableViewCell.h>

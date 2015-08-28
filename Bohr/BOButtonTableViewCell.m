@@ -17,17 +17,8 @@
 	self.textLabel.textAlignment = NSTextAlignmentCenter;
 }
 
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	if ([self.target respondsToSelector:self.action]) {
-		[self.target performSelector:self.action];
-	}
-}
-
-- (void)setTarget:(id)target action:(SEL)action {
-	self.target = target;
-	self.action = action;
+	if (self.actionBlock) self.actionBlock();
 }
 
 @end

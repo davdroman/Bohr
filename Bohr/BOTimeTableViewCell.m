@@ -12,7 +12,7 @@
 
 @interface BOTimeTableViewCell ()
 
-@property (nonatomic, strong) UIPickerView *timePickerView;
+@property (nonatomic) UIPickerView *timePickerView;
 
 @end
 

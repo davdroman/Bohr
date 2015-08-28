@@ -24,10 +24,10 @@ typedef NS_ENUM(NSInteger, BOTextFieldInputError) {
 typedef void(^BOTextFieldInputErrorBlock)(BOTextTableViewCell *cell, BOTextFieldInputError error);
 
 /// The text field on the cell.
-@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic) UITextField *textField;
 
 /// The minimum amount of non-blank characters necessary for the text field.
-@property (nonatomic) IBInspectable NSInteger minimumTextLength;
+@property (nonatomic) NSInteger minimumTextLength;
 
 /// A block defining an input error that has ocurred in the cell text field.
 @property (nonatomic, copy) BOTextFieldInputErrorBlock inputErrorBlock;

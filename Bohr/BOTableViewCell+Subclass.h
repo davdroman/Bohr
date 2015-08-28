@@ -14,10 +14,10 @@
 @interface BOTableViewCell ()
 
 /// The current index path of the cell relative to its table view.
-@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic) NSIndexPath *indexPath;
 
 /// The setting object which the cell represents.
-@property (nonatomic, strong) BOSetting *setting;
+@property (nonatomic) BOSetting *setting;
 
 /// The setup method for the cell, where you may set up all the views and constraints necessary for the cell to work.
 - (void)setup;

@@ -23,7 +23,7 @@
 		return self.footerTitles[currentOption];
 	}
 	
-	return [super footerTitle];
+	return nil;
 }
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
