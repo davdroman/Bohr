@@ -11,6 +11,6 @@
 @interface BOOptionTableViewCell : BOTableViewCell
 
 /// The string for the footer title when the cell has a checkmark on it.
-@property (nonatomic, strong) IBInspectable NSString *footerTitle;
+@property (nonatomic) NSString *footerTitle;
 
 @end

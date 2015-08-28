@@ -11,6 +11,6 @@
 @interface BOTimeTableViewCell : BOTableViewCell <UIPickerViewDataSource, UIPickerViewDelegate>
 
 /// The minute interval showed on the time picker view.
-@property (nonatomic) IBInspectable NSInteger minuteInterval;
+@property (nonatomic) NSInteger minuteInterval;
 
 @end

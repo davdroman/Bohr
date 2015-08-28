@@ -7,24 +7,21 @@
 
 #import "AppDelegate.h"
 
-#import <Bohr/Bohr.h>
+#import "TableViewController.h"
+#import "UIColor+Bohr.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	[self setupAppearance];
 	[self setupDefaults];
+	[self setupAppearance];
+	
+	self.window = [UIWindow new];
+	self.window.frame = [UIScreen mainScreen].bounds;
+	self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[TableViewController new]];
+	[self.window makeKeyAndVisible];
 	
 	return YES;
-}
-
-- (void)setupAppearance {
-	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-	
-	UIColor *blueColor = [UIColor colorWithRed:71/255.0 green:165/255.0 blue:254/255.0 alpha:1];
-	[BOTableViewCell appearance].mainColor = [UIColor colorWithWhite:0.3 alpha:1];
-	[BOTableViewCell appearance].secondaryColor = blueColor;
-	[BOTableViewCell appearance].selectedColor = blueColor;
 }
 
 - (void)setupDefaults {
@@ -32,10 +29,28 @@
 															  @"bool_1": @YES,
 															  @"bool_2": @NO,
 															  @"text": @"",
-															  @"choice": @0,
+															  @"choice_1": @0,
 															  @"choice_2": @2,
 															  @"time": @300,
 															  }];
+}
+
+- (void)setupAppearance {
+	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+	
+	[UINavigationBar appearance].translucent = NO;
+	[UINavigationBar appearance].barTintColor = [UIColor bo_blueColor];
+	[UINavigationBar appearance].tintColor = [UIColor whiteColor];
+	[UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+	
+	[UITableView appearance].backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+	
+	[BOTableViewSection appearance].headerTitleColor = [UIColor bo_grayColor];
+	[BOTableViewSection appearance].footerTitleColor = [UIColor bo_lightGrayColor];
+	
+	[BOTableViewCell appearance].mainColor = [UIColor bo_darkGrayColor];
+	[BOTableViewCell appearance].secondaryColor = [UIColor bo_blueColor];
+	[BOTableViewCell appearance].selectedColor = [UIColor bo_blueColor];
 }
 
 @end

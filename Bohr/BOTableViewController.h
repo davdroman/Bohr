@@ -7,22 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BOTableViewSection.h"
 
 @interface BOTableViewController : UITableViewController
 
-/// The text color for all the headers in the table view.
-@property (nonatomic, strong) IBInspectable UIColor *headerTitlesColor;
-
-/// The text font for all the headers in the table view.
-@property (nonatomic, strong) UIFont *headerTitlesFont;
-
-/// The text color for all the footers in the table view.
-@property (nonatomic, strong) IBInspectable UIColor *footerTitlesColor;
-
-/// The text font for all the footers in the table view.
-@property (nonatomic, strong) UIFont *footerTitlesFont;
+/// The array of BOTableViewSections of the controller.
+@property (nonatomic, readonly) NSArray *sections;
 
 /// The setup method for the controller.
 - (void)setup;
+
+/// Adds a new section to the controller.
+- (void)addSection:(BOTableViewSection *)section;
 
 @end

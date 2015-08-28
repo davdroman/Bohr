@@ -10,13 +10,7 @@
 
 @interface BOButtonTableViewCell : BOTableViewCell
 
-/// The target of the cell action.
-@property (nonatomic) id target;
-
-/// The action defined by the cell, triggered when it's tapped.
-@property (nonatomic) SEL action;
-
-/// Sets both the target and action for the cell to be performed.
-- (void)setTarget:(id)target action:(SEL)action;
+/// A block defining the cell action when it's pressed.
+@property (nonatomic, copy) void (^actionBlock)(void);
 
 @end

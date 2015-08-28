@@ -29,15 +29,9 @@
 /// The color for the selected state of the cell.
 @property (nonatomic) UIColor *selectedColor UI_APPEARANCE_SELECTOR;
 
-/// An optional destination view controller to push when the cell is pressed.
-@property (nonatomic) UIViewController *destinationViewController;
+/// The default footer title for the cell.
+@property (nonatomic) NSString *footerTitle;
 
-/** Initializes a new BOTableViewCell object.
- *
- *	@param title The cell title.
- *	@param key The NSUserDefaults key associated with the cell.
- *	@param handler A block passed in order to set up anything in the cell.
- **/
 + (instancetype)cellWithTitle:(NSString *)title key:(NSString *)key handler:(void (^)(id cell))handler;
 
 @end

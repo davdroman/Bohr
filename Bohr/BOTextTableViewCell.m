@@ -18,14 +18,8 @@
 	self.textField.textAlignment = NSTextAlignmentRight;
 	self.textField.returnKeyType = UIReturnKeyDone;
 	self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-	[self.contentView addSubview:self.textField];
-	
-	NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint constraintWithItem:self.textField attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField.superview attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-	NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.textField attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.textLabel attribute:NSLayoutAttributeRight multiplier:1 constant:15];
-	NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.textField attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.textField.superview attribute:NSLayoutAttributeRightMargin multiplier:1 constant:0];
-	
-	self.textField.translatesAutoresizingMaskIntoConstraints = NO;
-	[self.textField.superview addConstraints:@[centerYConstraint, leftConstraint, rightConstraint]];
+	self.textField.frame = CGRectMake(0, 0, 130, self.textField.intrinsicContentSize.height);
+	self.accessoryView = self.textField;
 }
 
 - (void)updateAppearance {

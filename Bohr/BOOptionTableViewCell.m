@@ -17,18 +17,12 @@
 }
 
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	NSInteger optionIndex = [viewController.tableView indexPathForCell:self].row;
-	self.setting.value = @(optionIndex);
+	self.setting.value = @(self.indexPath.row);
 }
 
 - (void)settingValueDidChange {
 	NSInteger optionIndex = [self.setting.value integerValue];
-	
-    if (optionIndex == self.indexPath.row) {
-        self.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        self.accessoryType = UITableViewCellAccessoryNone;
-    }
+	self.accessoryType = (optionIndex == self.indexPath.row) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 @end
