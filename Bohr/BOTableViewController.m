@@ -22,27 +22,35 @@
 
 @implementation BOTableViewController
 
-- (instancetype)init {
-	return [self initWithStyle:UITableViewStyleGrouped];
+- (void)commonInit {
+	self.sections = [NSArray new];
+	
+	self.tableView.estimatedRowHeight = 55;
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
+	self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+	self.tableView.tableFooterView = [UIView new];
+	
+	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.tableView action:@selector(endEditing:)];
+	tapGestureRecognizer.cancelsTouchesInView = NO;
+	[self.tableView addGestureRecognizer:tapGestureRecognizer];
+	
+	[self setup];
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
-		self.sections = [NSArray new];
-		
-		self.tableView.estimatedRowHeight = 55;
-		self.tableView.rowHeight = UITableViewAutomaticDimension;
-		self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-		self.tableView.tableFooterView = [UIView new];
-		
-		UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.tableView action:@selector(endEditing:)];
-		tapGestureRecognizer.cancelsTouchesInView = NO;
-		[self.tableView addGestureRecognizer:tapGestureRecognizer];
-		
-		[self setup];
+		[self commonInit];
 	}
 	
 	return self;
+}
+
+- (instancetype)init {
+	return [self initWithStyle:UITableViewStyleGrouped];
+}
+
+- (void)awakeFromNib {
+	[self commonInit];
 }
 
 - (void)addSection:(BOTableViewSection *)section {
@@ -92,7 +100,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
-	CGFloat cellHeight = [cell systemLayoutSizeFittingSize:CGSizeMake(cell.contentView.frame.size.width, 0)].height;
+	CGFloat cellHeight = [cell systemLayoutSizeFittingSize:CGSizeMake(cell.contentView.frame.size.width, UITableViewAutomaticDimension)].height;
 	
 	if (cellHeight < self.tableView.estimatedRowHeight) {
 		cellHeight = self.tableView.estimatedRowHeight;
@@ -113,6 +121,7 @@
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
 	cell.indexPath = indexPath;
+	[cell prepareForReuse];
 	
 	if (cell.setting && !cell.setting.valueDidChangeBlock) {
 		[UIView performWithoutAnimation:^{
@@ -143,7 +152,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	BOTableViewCell *cell = (BOTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 	
-	if (cell.expansionHeight > 0) {
+	if ([cell expansionHeight] > 0) {
 		self.expansionIndexPath = ![indexPath isEqual:self.expansionIndexPath] ? indexPath : nil;
 		
 		[self.tableView deselectRowAtIndexPath:indexPath animated:NO];

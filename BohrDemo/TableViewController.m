@@ -15,7 +15,9 @@
 	self.title = @"Bohr";
 	
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 1" handler:^(BOTableViewSection *section) {
+		
 		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 1" key:@"bool_1" handler:nil]];
+		
 		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 2" key:@"bool_2" handler:^(BOSwitchTableViewCell *cell) {
 			cell.onFooterTitle = @"Switch setting 2 is on";
 			cell.offFooterTitle = @"Switch setting 2 is off";
@@ -24,6 +26,7 @@
 	
 	__unsafe_unretained typeof(self) weakSelf = self;
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 2" handler:^(BOTableViewSection *section) {
+		
 		[section addCell:[BOTextTableViewCell cellWithTitle:@"Text" key:@"text" handler:^(BOTextTableViewCell *cell) {
 			cell.textField.placeholder = @"Placeholder";
 			cell.inputErrorBlock = ^(BOTextTableViewCell *cell, BOTextFieldInputError error) {
@@ -31,8 +34,10 @@
 			};
 		}]];
 		
+		[section addCell:[BODateTableViewCell cellWithTitle:@"Date" key:@"date" handler:nil]];
+		
 		[section addCell:[BOTimeTableViewCell cellWithTitle:@"Time" key:@"time" handler:^(BOTimeTableViewCell *cell) {
-			cell.minuteInterval = 5;
+			cell.datePicker.minuteInterval = 5;
 		}]];
 		
 		[section addCell:[BOChoiceTableViewCell cellWithTitle:@"Choice" key:@"choice_1" handler:^(BOChoiceTableViewCell *cell) {
@@ -47,6 +52,7 @@
 	}]];
 	
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 3" handler:^(BOTableViewSection *section) {
+		
 		[section addCell:[BOButtonTableViewCell cellWithTitle:@"Button" key:nil handler:^(BOButtonTableViewCell *cell) {
 			cell.actionBlock = ^{
 				[weakSelf showButtonAlert];
