@@ -31,6 +31,20 @@
 	return self;
 }
 
+- (void)didMoveToSuperview {
+	if (self.superview && self.expansionView) {
+		[self.contentView addSubview:self.expansionView];
+		
+		NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeTopMargin multiplier:1 constant:0];
+		NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+		NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+		NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:[self expansionHeight]];
+		
+		self.expansionView.translatesAutoresizingMaskIntoConstraints = NO;
+		[self.expansionView.superview addConstraints:@[topConstraint, leftConstraint, rightConstraint, heightConstraint]];
+	}
+}
+
 - (void)setDestinationViewController:(UIViewController *)destinationViewController {
 	if (_destinationViewController != destinationViewController) {
 		_destinationViewController = destinationViewController;
@@ -45,7 +59,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	if (self.expansionHeight > 0) {
+	if ([self expansionView]) {
 		CGFloat yOffset = (self.layoutMargins.top-self.frame.size.height)/2;
 		
 		self.textLabel.center = CGPointMake(self.textLabel.center.x, self.textLabel.center.y+yOffset);
@@ -73,7 +87,7 @@
 - (void)setup {}
 - (void)setupConstraints {}
 - (void)updateAppearance {}
-- (CGFloat)expansionHeight {return 0;}
+- (CGFloat)expansionHeight {return self.expansionView.intrinsicContentSize.height;}
 - (NSString *)footerTitle {return nil;}
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {}
 - (void)settingValueDidChange {}

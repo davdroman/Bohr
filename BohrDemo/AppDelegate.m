@@ -29,9 +29,10 @@
 															  @"bool_1": @YES,
 															  @"bool_2": @NO,
 															  @"text": @"",
+															  @"date": [NSDate new],
+															  @"time": [NSDate new],
 															  @"choice_1": @0,
 															  @"choice_2": @2,
-															  @"time": @300,
 															  }];
 }
 

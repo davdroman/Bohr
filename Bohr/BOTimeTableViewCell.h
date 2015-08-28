@@ -6,11 +6,8 @@
 //  Copyright (c) 2015 David Roman. All rights reserved.
 //
 
-#import "BOTableViewCell.h"
+#import "BODateTableViewCell.h"
 
-@interface BOTimeTableViewCell : BOTableViewCell <UIPickerViewDataSource, UIPickerViewDelegate>
-
-/// The minute interval showed on the time picker view.
-@property (nonatomic) NSInteger minuteInterval;
+@interface BOTimeTableViewCell : BODateTableViewCell
 
 @end

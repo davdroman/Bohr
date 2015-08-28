@@ -19,13 +19,16 @@
 /// The setting object which the cell represents.
 @property (nonatomic) BOSetting *setting;
 
+/// An optional view shown when the cell is pressed.
+@property (nonatomic) UIView *expansionView;
+
 /// The setup method for the cell, where you may set up all the views and constraints necessary for the cell to work.
 - (void)setup;
 
 /// The method in charge of updating the appearance of the main cell view components, through properties as mainColor, mainFont, secondaryColor, secondaryFont.
 - (void)updateAppearance;
 
-/// You may return the height for the cell to be expanded when tapped.
+/// The optional height for the cell to be expanded when pressed.
 - (CGFloat)expansionHeight;
 
 /// You may return the footer text for the cell to be set on its section.
