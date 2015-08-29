@@ -100,8 +100,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
-	CGFloat cellHeight = [cell systemLayoutSizeFittingSize:CGSizeMake(cell.contentView.frame.size.width, UITableViewAutomaticDimension)].height;
-	
+	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:CGSizeMake(cell.contentView.frame.size.width, UITableViewAutomaticDimension)].height;
+
 	if (cellHeight < self.tableView.estimatedRowHeight) {
 		cellHeight = self.tableView.estimatedRowHeight;
 	} else {
@@ -121,15 +121,14 @@
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
 	cell.indexPath = indexPath;
-	[cell prepareForReuse];
 	
 	if (cell.setting && !cell.setting.valueDidChangeBlock) {
 		[UIView performWithoutAnimation:^{
 			__unsafe_unretained typeof(self) weakSelf = self;
 			__unsafe_unretained typeof(cell) weakCell = cell;
 			cell.setting.valueDidChangeBlock = ^{
-				[weakSelf reloadTableView];
 				[weakCell settingValueDidChange];
+				[weakSelf reloadTableView];
 			};
 		}];
 	}
@@ -205,7 +204,7 @@
 	// Finally, we try to find an existing footer in any cell that has a checkmark accessory on it (this is the top priority for dynamic footers).
 	for (BOTableViewCell *cell in section.cells) {
 		if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-			footerTitle = [cell footerTitle];
+			footerTitle = cell.footerTitle;
 		}
 	}
 	

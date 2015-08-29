@@ -31,9 +31,7 @@
 }
 
 - (CGFloat)expansionHeight {
-	// Uncomment if the picker view doesn't show on iOS 9.
-	// return 216;
-	return [super expansionHeight];
+	return 216;
 }
 
 - (void)setDateFormat:(NSString *)dateFormat {
