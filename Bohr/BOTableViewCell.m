@@ -32,7 +32,7 @@
 }
 
 - (void)didMoveToSuperview {
-	if (self.superview && self.expansionView) {
+	if (self.expansionView && !self.expansionView.superview) {
 		[self.contentView addSubview:self.expansionView];
 		
 		NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeTopMargin multiplier:1 constant:0];
@@ -59,7 +59,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	if ([self expansionView]) {
+	if ([self expansionHeight] > 0) {
 		CGFloat yOffset = (self.layoutMargins.top-self.frame.size.height)/2;
 		
 		self.textLabel.center = CGPointMake(self.textLabel.center.x, self.textLabel.center.y+yOffset);
