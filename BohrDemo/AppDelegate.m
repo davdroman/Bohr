@@ -29,6 +29,7 @@
 															  @"bool_1": @YES,
 															  @"bool_2": @NO,
 															  @"text": @"",
+															  @"number": @0,
 															  @"date": [NSDate new],
 															  @"time": [NSDate new],
 															  @"choice_1": @0,

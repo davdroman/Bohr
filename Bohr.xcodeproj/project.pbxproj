@@ -47,6 +47,9 @@
 		D5CF66521B8E491A00FC5F13 /* UIColor+Bohr.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CF66511B8E491A00FC5F13 /* UIColor+Bohr.m */; };
 		D5D00B6E1B8FD14500ADCAB2 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D00B6D1B8FD14500ADCAB2 /* OptionsTableViewController.m */; };
 		D5D00B721B8FE63E00ADCAB2 /* BOTableViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D00B711B8FE63E00ADCAB2 /* BOTableViewCell+Private.h */; };
+		D5D499F21B9749AB0015C617 /* BOTextTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D5EBE5F11B963C250096AD4C /* BONumberTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D5EBE5EF1B963C250096AD4C /* BONumberTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5EBE5F21B963C250096AD4C /* BONumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */; };
 		D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */; };
 /* End PBXBuildFile section */
@@ -122,6 +125,9 @@
 		D5D00B6C1B8FD14500ADCAB2 /* OptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableViewController.h; sourceTree = "<group>"; };
 		D5D00B6D1B8FD14500ADCAB2 /* OptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsTableViewController.m; sourceTree = "<group>"; };
 		D5D00B711B8FE63E00ADCAB2 /* BOTableViewCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewCell+Private.h"; sourceTree = "<group>"; };
+		D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTextTableViewCell+Subclass.h"; sourceTree = "<group>"; };
+		D5EBE5EF1B963C250096AD4C /* BONumberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONumberTableViewCell.h; sourceTree = "<group>"; };
+		D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONumberTableViewCell.m; sourceTree = "<group>"; };
 		D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewController+Private.h"; sourceTree = "<group>"; };
 		D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOSetting+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +217,9 @@
 				754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */,
 				75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */,
 				75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */,
+				D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */,
+				D5EBE5EF1B963C250096AD4C /* BONumberTableViewCell.h */,
+				D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */,
 				D594623A1B90E17D0028F4BD /* BODateTableViewCell.h */,
 				D594623B1B90E17D0028F4BD /* BODateTableViewCell.m */,
 				D594623E1B90EA5F0028F4BD /* UILabel+DatePickerCustomization.h */,
@@ -248,11 +257,13 @@
 			files = (
 				D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */,
 				D59462401B90EA5F0028F4BD /* UILabel+DatePickerCustomization.h in Headers */,
+				D5EBE5F11B963C250096AD4C /* BONumberTableViewCell.h in Headers */,
 				754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */,
 				75E19B461B2BCCFE00C03FF6 /* BOTextTableViewCell.h in Headers */,
 				75C7AE041B1AB3280050C8AA /* Bohr.h in Headers */,
 				75C7AE211B1AB3480050C8AA /* BOTableViewController.h in Headers */,
 				75E19B441B2BC76100C03FF6 /* BOChoiceTableViewCell.h in Headers */,
+				D5D499F21B9749AB0015C617 /* BOTextTableViewCell+Subclass.h in Headers */,
 				754E56891B1DFDB400075B6E /* BOSetting.h in Headers */,
 				D5CF66461B8DFAC800FC5F13 /* BOTableViewSection.h in Headers */,
 				D5CF664C1B8DFF4700FC5F13 /* MZAppearance.h in Headers */,
@@ -383,6 +394,7 @@
 			files = (
 				75C7AE2A1B1AB42A0050C8AA /* BOTableViewCell.m in Sources */,
 				75C7AE221B1AB3480050C8AA /* BOTableViewController.m in Sources */,
+				D5EBE5F21B963C250096AD4C /* BONumberTableViewCell.m in Sources */,
 				754E568A1B1DFDB400075B6E /* BOSetting.m in Sources */,
 				75B6CE1F1B375DCA00DADCBD /* BOButtonTableViewCell.m in Sources */,
 				D5CF66471B8DFAC800FC5F13 /* BOTableViewSection.m in Sources */,

@@ -27,7 +27,7 @@
 	self.expansionView = self.datePicker;
 	
 	self.dateFormatter = [NSDateFormatter new];
-	self.dateFormatter.dateFormat = [self defaultDateFormat];
+	self.dateFormatter.dateFormat = [self dateFormat];
 }
 
 - (CGFloat)expansionHeight {
@@ -35,16 +35,17 @@
 }
 
 - (void)setDateFormat:(NSString *)dateFormat {
-	dateFormat = self.dateFormat.length == 0 ? [self defaultDateFormat] : dateFormat;
-	self.dateFormatter.dateFormat = dateFormat;
+	if (dateFormat.length > 0) {
+		self.dateFormatter.dateFormat = dateFormat;
+	}
 }
 
 - (NSString *)dateFormat {
+	if (self.dateFormatter.dateFormat.length == 0) {
+		return [NSDateFormatter dateFormatFromTemplate:@"dd/MM/YYYY" options:kNilOptions locale:[NSLocale currentLocale]];
+	}
+	
 	return self.dateFormatter.dateFormat;
-}
-
-- (NSString *)defaultDateFormat {
-	return [NSDateFormatter dateFormatFromTemplate:@"dd/MM/YYYY" options:kNilOptions locale:[NSLocale currentLocale]];
 }
 
 - (void)settingValueDidChange {

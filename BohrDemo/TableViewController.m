@@ -28,9 +28,17 @@
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 2" handler:^(BOTableViewSection *section) {
 		
 		[section addCell:[BOTextTableViewCell cellWithTitle:@"Text" key:@"text" handler:^(BOTextTableViewCell *cell) {
-			cell.textField.placeholder = @"Placeholder";
+			cell.textField.placeholder = @"Enter text";
 			cell.inputErrorBlock = ^(BOTextTableViewCell *cell, BOTextFieldInputError error) {
-				[weakSelf presentAlertControllerWithTitle:@"Error" message:@"The text is too short"];
+				[weakSelf showInputErrorAlert:error];
+			};
+		}]];
+		
+		[section addCell:[BONumberTableViewCell cellWithTitle:@"Number" key:@"number" handler:^(BONumberTableViewCell *cell) {
+			cell.textField.placeholder = @"Enter number";
+			cell.numberOfDecimals = 3;
+			cell.inputErrorBlock = ^(BOTextTableViewCell *cell, BOTextFieldInputError error) {
+				[weakSelf showInputErrorAlert:error];
 			};
 		}]];
 		
@@ -55,7 +63,7 @@
 		
 		[section addCell:[BOButtonTableViewCell cellWithTitle:@"Button" key:nil handler:^(BOButtonTableViewCell *cell) {
 			cell.actionBlock = ^{
-				[weakSelf showButtonAlert];
+				[weakSelf showTappedButtonAlert];
 			};
 		}]];
 		
@@ -72,7 +80,28 @@
 	[self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)showButtonAlert {
+- (void)showInputErrorAlert:(BOTextFieldInputError)error {
+	NSString *message;
+	
+	switch (error) {
+		case BOTextFieldInputTooShortError:
+			message = @"The text is too short";
+			break;
+			
+		case BOTextFieldInputNotNumericError:
+			message = @"Please input a valid number";
+			break;
+		
+		default:
+			break;
+	}
+	
+	if (message) {
+		[self presentAlertControllerWithTitle:@"Error" message:message];
+	}
+}
+
+- (void)showTappedButtonAlert {
 	[self presentAlertControllerWithTitle:@"Button tapped!" message:nil];
 }
 

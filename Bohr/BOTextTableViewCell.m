@@ -9,6 +9,7 @@
 #import "BOTextTableViewCell.h"
 
 #import "BOTableViewCell+Subclass.h"
+#import "BOTextTableViewCell+Subclass.h"
 
 @implementation BOTextTableViewCell
 
@@ -44,15 +45,31 @@
 	return YES;
 }
 
+- (NSString *)textFieldTrimmedText {
+	return [self.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	NSString *filteredText = [textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+	BOTextFieldInputError error = [self validateTextFieldInput:[self textFieldTrimmedText]];
 	
-	if (filteredText.length < self.minimumTextLength) {
-		if (self.inputErrorBlock) self.inputErrorBlock(self, BOTextFieldInputTooShortError);
-		textField.text = self.setting.value;
+	if (error != BOTextFieldInputNoError) {
+		[self resetTextFieldAndInvokeInputError:error];
 	} else {
-		self.setting.value = textField.text;
+		self.setting.value = [self settingValueForInput:textField.text];
 	}
+}
+
+- (BOTextFieldInputError)validateTextFieldInput:(NSString *)input {
+	return input.length < self.minimumTextLength ? BOTextFieldInputTooShortError : BOTextFieldInputNoError;
+}
+
+- (void)resetTextFieldAndInvokeInputError:(BOTextFieldInputError)error {
+	[self settingValueDidChange];
+	if (self.inputErrorBlock) self.inputErrorBlock(self, error);
+}
+
+- (id)settingValueForInput:(NSString *)input {
+	return [self textFieldTrimmedText];
 }
 
 @end

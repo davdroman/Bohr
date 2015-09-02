@@ -19,6 +19,7 @@
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		[self setup];
 		if (handler) handler(self);
+		self.preservesSuperviewLayoutMargins = NO;
 		self.clipsToBounds = YES;
 		self.textLabel.numberOfLines = 0;
 		self.textLabel.text = title;
@@ -33,7 +34,7 @@
 
 - (void)didMoveToSuperview {
 	if (self.expansionView && !self.expansionView.superview) {
-		[self.contentView addSubview:self.expansionView];
+		[self addSubview:self.expansionView];
 		
 		NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeTopMargin multiplier:1 constant:0];
 		NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
