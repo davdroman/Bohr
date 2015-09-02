@@ -8,9 +8,11 @@
 
 #import "BOTableViewCell.h"
 
-/// Defines an error after trying to input some new value to the cell text field.
+/// Defines an error ocurred after trying to input some new value to the cell text field.
 typedef NS_ENUM(NSInteger, BOTextFieldInputError) {
-	BOTextFieldInputTooShortError
+	BOTextFieldInputNoError,
+	BOTextFieldInputTooShortError,
+	BOTextFieldInputNotNumericError,
 };
 
 @interface BOTextTableViewCell : BOTableViewCell <UITextFieldDelegate>

@@ -100,13 +100,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
-	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:CGSizeMake(cell.contentView.frame.size.width, UITableViewAutomaticDimension)].height;
-
-	if (cellHeight < self.tableView.estimatedRowHeight) {
-		cellHeight = self.tableView.estimatedRowHeight;
-	} else {
-		cellHeight += 10;
-	}
+	CGFloat cellHeight = MAX(self.tableView.estimatedRowHeight, [self heightForCell:cell]);
 	
 	cell.layoutMargins = UIEdgeInsetsMake(cellHeight, cell.layoutMargins.left, cell.layoutMargins.bottom, cell.layoutMargins.right);
 	
@@ -115,6 +109,22 @@
 	}
 	
 	return cellHeight;
+}
+
+- (CGFloat)heightForCell:(UITableViewCell *)cell {
+	
+	UITableViewCell *cleanCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	cleanCell.layoutMargins = cell.layoutMargins;
+	cleanCell.frame = cell.frame;
+	cleanCell.textLabel.numberOfLines = 0;
+	cleanCell.textLabel.text = cell.textLabel.text;
+	cleanCell.detailTextLabel.text = cell.detailTextLabel.text;
+	cleanCell.accessoryView = cell.accessoryView;
+	cleanCell.accessoryType = cell.accessoryType;
+	
+	CGFloat height = [cleanCell systemLayoutSizeFittingSize:CGSizeMake(cleanCell.frame.size.width, UITableViewAutomaticDimension)].height;
+	
+	return height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,8 +148,10 @@
 
 - (void)reloadTableView {
 	[UIView performWithoutAnimation:^{
+		CGPoint previousContentOffset = self.tableView.contentOffset;
 		[self.tableView beginUpdates];
 		[self.tableView endUpdates];
+		self.tableView.contentOffset = previousContentOffset;
 	}];
 }
 
@@ -187,6 +199,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 	UITableViewHeaderFooterView *footerView = self.footerViews[section];
 	footerView.textLabel.text = [self tableView:tableView titleForFooterInSection:section];
+	footerView.textLabel.numberOfLines = 0;
+	CGPoint previousOrigin = footerView.textLabel.frame.origin;
+	[footerView sizeToFit];
+	footerView.textLabel.frame = CGRectMake(previousOrigin.x, previousOrigin.y, footerView.textLabel.frame.size.width, footerView.textLabel.frame.size.height);
 	
 	return footerView.intrinsicContentSize.height;
 }
@@ -211,15 +227,24 @@
 	return footerTitle ? footerTitle : @"";
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-	UITableViewHeaderFooterView *footerView = self.footerViews[section];
-	return footerView;
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex {
+	UITableViewHeaderFooterView *footerView = self.footerViews[sectionIndex];
+	if (![[self tableView:tableView titleForFooterInSection:sectionIndex] isEqualToString:@""]) {
+		return footerView;
+	}
+	return nil;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UITableViewHeaderFooterView *)footerView forSection:(NSInteger)sectionIndex {
 	BOTableViewSection *section = self.sections[sectionIndex];
 	if (section.footerTitleColor) footerView.textLabel.textColor = section.footerTitleColor;
 	if (section.footerTitleFont) footerView.textLabel.font = section.footerTitleFont;
+}
+
+- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+	[coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+		[self.tableView reloadData];
+	}];
 }
 
 #pragma mark Subclassing
