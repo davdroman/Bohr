@@ -100,9 +100,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	BOTableViewSection *section = self.sections[indexPath.section];
 	BOTableViewCell *cell = section.cells[indexPath.row];
-	CGFloat cellHeight = MAX(self.tableView.estimatedRowHeight, [self heightForCell:cell]);
 	
-	cell.layoutMargins = UIEdgeInsetsMake(cellHeight, cell.layoutMargins.left, cell.layoutMargins.bottom, cell.layoutMargins.right);
+	CGFloat cellHeight = MAX(self.tableView.estimatedRowHeight, [self heightForCell:cell]);
+	cell.height = cellHeight;
 	
 	if ([self.expansionIndexPath isEqual:indexPath]) {
 		cellHeight += [cell expansionHeight];
@@ -114,15 +114,13 @@
 - (CGFloat)heightForCell:(UITableViewCell *)cell {
 	
 	UITableViewCell *cleanCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-	cleanCell.layoutMargins = cell.layoutMargins;
-	cleanCell.frame = cell.frame;
+	cleanCell.frame = CGRectMake(0, 0, cell.frame.size.width, 0);
 	cleanCell.textLabel.numberOfLines = 0;
 	cleanCell.textLabel.text = cell.textLabel.text;
-	cleanCell.detailTextLabel.text = cell.detailTextLabel.text;
 	cleanCell.accessoryView = cell.accessoryView;
 	cleanCell.accessoryType = cell.accessoryType;
 	
-	CGFloat height = [cleanCell systemLayoutSizeFittingSize:CGSizeMake(cleanCell.frame.size.width, UITableViewAutomaticDimension)].height;
+	CGFloat height = [cleanCell systemLayoutSizeFittingSize:cleanCell.frame.size].height;
 	
 	return height;
 }
@@ -133,13 +131,17 @@
 	cell.indexPath = indexPath;
 	
 	if (cell.setting && !cell.setting.valueDidChangeBlock) {
-		[UIView performWithoutAnimation:^{
-			__unsafe_unretained typeof(self) weakSelf = self;
-			__unsafe_unretained typeof(cell) weakCell = cell;
-			cell.setting.valueDidChangeBlock = ^{
+		__unsafe_unretained typeof(self) weakSelf = self;
+		__unsafe_unretained typeof(cell) weakCell = cell;
+		cell.setting.valueDidChangeBlock = ^{
+			dispatch_async(dispatch_get_main_queue(), ^{
 				[weakCell settingValueDidChange];
 				[weakSelf reloadTableView];
-			};
+			});
+		};
+		
+		[UIView performWithoutAnimation:^{
+			[cell settingValueDidChange];
 		}];
 	}
 	
@@ -199,6 +201,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 	UITableViewHeaderFooterView *footerView = self.footerViews[section];
 	footerView.textLabel.text = [self tableView:tableView titleForFooterInSection:section];
+	// Super hacky code for iOS 9 support.
 	footerView.textLabel.numberOfLines = 0;
 	CGPoint previousOrigin = footerView.textLabel.frame.origin;
 	[footerView sizeToFit];
@@ -239,12 +242,6 @@
 	BOTableViewSection *section = self.sections[sectionIndex];
 	if (section.footerTitleColor) footerView.textLabel.textColor = section.footerTitleColor;
 	if (section.footerTitleFont) footerView.textLabel.font = section.footerTitleFont;
-}
-
-- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-	[coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-		[self.tableView reloadData];
-	}];
 }
 
 #pragma mark Subclassing
