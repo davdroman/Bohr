@@ -10,6 +10,8 @@
 
 @interface BOTableViewCell ()
 
+@property (nonatomic) CGFloat height;
+
 - (void)_updateAppearance;
 
 @end

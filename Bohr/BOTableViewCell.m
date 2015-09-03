@@ -12,6 +12,12 @@
 #import "BOSetting+Private.h"
 #import "BOTableViewController+Private.h"
 
+@interface BOTableViewCell ()
+
+@property (nonatomic) NSLayoutConstraint *expansionViewTopConstraint;
+
+@end
+
 @implementation BOTableViewCell
 
 - (instancetype)initWithTitle:(NSString *)title key:(NSString *)key handler:(void (^)(id cell))handler {
@@ -32,17 +38,26 @@
 	return self;
 }
 
-- (void)didMoveToSuperview {
-	if (self.expansionView && !self.expansionView.superview) {
-		[self addSubview:self.expansionView];
+- (void)setExpansionView:(UIView *)expansionView {
+	if (self.expansionView != expansionView) {
+		[self.expansionView removeFromSuperview];
+		_expansionView = expansionView;
+		[self.contentView addSubview:self.expansionView];
 		
-		NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeTopMargin multiplier:1 constant:0];
+		self.expansionViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeTop multiplier:1 constant:0];
 		NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
 		NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.expansionView.superview attribute:NSLayoutAttributeRight multiplier:1 constant:0];
 		NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.expansionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:[self expansionHeight]];
 		
 		self.expansionView.translatesAutoresizingMaskIntoConstraints = NO;
-		[self.expansionView.superview addConstraints:@[topConstraint, leftConstraint, rightConstraint, heightConstraint]];
+		[self.expansionView.superview addConstraints:@[self.expansionViewTopConstraint, leftConstraint, rightConstraint, heightConstraint]];
+	}
+}
+
+- (void)setHeight:(CGFloat)height {
+	if (_height != height) {
+		_height = height;
+		self.expansionViewTopConstraint.constant = height;
 	}
 }
 
@@ -61,7 +76,7 @@
 	[super layoutSubviews];
 	
 	if ([self expansionHeight] > 0) {
-		CGFloat yOffset = (self.layoutMargins.top-self.frame.size.height)/2;
+		CGFloat yOffset = (self.height-self.frame.size.height)/2;
 		
 		self.textLabel.center = CGPointMake(self.textLabel.center.x, self.textLabel.center.y+yOffset);
 		self.detailTextLabel.center = CGPointMake(self.detailTextLabel.center.x, self.detailTextLabel.center.y+yOffset);
