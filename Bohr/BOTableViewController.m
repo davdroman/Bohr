@@ -111,18 +111,19 @@
 	return cellHeight;
 }
 
-- (CGFloat)heightForCell:(UITableViewCell *)cell {
+- (CGFloat)heightForCell:(BOTableViewCell *)cell {
 	
-	UITableViewCell *cleanCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-	cleanCell.frame = CGRectMake(0, 0, cell.frame.size.width, 0);
-	cleanCell.textLabel.numberOfLines = 0;
-	cleanCell.textLabel.text = cell.textLabel.text;
-	cleanCell.accessoryView = cell.accessoryView;
-	cleanCell.accessoryType = cell.accessoryType;
+	if ([cell expansionHeight] > 0) {
+		UITableViewCell *cleanCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+		cleanCell.frame = CGRectMake(0, 0, cell.frame.size.width, 0);
+		cleanCell.textLabel.numberOfLines = 0;
+		cleanCell.textLabel.text = cell.textLabel.text;
+		cleanCell.accessoryView = cell.accessoryView;
+		cleanCell.accessoryType = cell.accessoryType;
+		return [cleanCell systemLayoutSizeFittingSize:cleanCell.frame.size].height;
+	}
 	
-	CGFloat height = [cleanCell systemLayoutSizeFittingSize:cleanCell.frame.size].height;
-	
-	return height;
+	return [cell systemLayoutSizeFittingSize:cell.frame.size].height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
