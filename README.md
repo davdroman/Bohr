@@ -106,7 +106,7 @@ That way you'll be able to access all the necessary methods for you to implement
 - `expansionHeight`: the cell height will be expanded to the value returned by this method when tapped.
 - `footerTitle`: the footer text to be displayed as a result of a setting value being modified.
 - `wasSelectedFromViewController:`: called when the cell is tapped. The `BOTableViewController` where the cell is contained is passed.
-- `settingValueDidChange`: called when the `NSUserDefault` value associated with the cell changes. You must represent such change through some visual element on your cell. Accessing that new value is as simple as calling `self.setting.value`.
+- `settingValueDidChange`: called when the `NSUserDefaults` value associated with the cell changes. You must represent such change through some visual element on your cell. Accessing that new value is as simple as calling `self.setting.value`.
 
 Please take a look to the implementation of `BOSwitchTableViewCell` for a more detailed demonstration on how to subclass `BOTableViewCell`.
 
