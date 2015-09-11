@@ -57,6 +57,10 @@
 			cell.options = @[@"Option 1", @"Option 2", @"Option 3", @"Option 4"];
 			cell.destinationViewController = [OptionsTableViewController new];
 		}]];
+        
+        [section addCell:[BOPickerTableViewCell cellWithTitle:@"Choice picker" key:@"choice_3" handler:^(BOPickerTableViewCell *cell) {           
+            cell.options = @[@"Option 1", @"Option 2", @"Option 3", @"Option 4"];
+        }]];
 	}]];
 	
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 3" handler:^(BOTableViewSection *section) {
