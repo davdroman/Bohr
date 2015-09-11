@@ -34,6 +34,7 @@
 															  @"time": [NSDate new],
 															  @"choice_1": @0,
 															  @"choice_2": @2,
+                                                              @"choice_3": @0,
 															  }];
 }
 
