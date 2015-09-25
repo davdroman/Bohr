@@ -10,6 +10,7 @@
 
 @interface BOTableViewSection ()
 
+@property (nonatomic) NSArray *rawCells;
 @property (nonatomic) NSArray *cells;
 
 @end
@@ -22,9 +23,9 @@
 
 - (instancetype)init {
 	if (self = [super init]) {
-		self.cells = [NSArray new];
+		self.rawCells = [NSArray new];
 		// Workaround to UITableViewHeaderFooterView's default 0-sized font driving iOS 9 nuts (yeah, WTF Apple).
-		self.footerTitleFont = [UIFont fontWithName:@"Helvetica" size:13];
+		self.footerTitleFont = [UIFont systemFontOfSize:13];
 		// I mean, really, if you...
 		// NSLog(@"%@", [UITableViewHeaderFooterView new].textLabel.font);
 		// you get "font-size: 0.00pt".
@@ -50,7 +51,17 @@
 }
 
 - (void)addCell:(BOTableViewCell *)cell {
-	self.cells = [self.cells arrayByAddingObject:cell];
+	self.rawCells = [self.rawCells arrayByAddingObject:cell];
+}
+
+- (NSArray *)cells {
+	return [self.rawCells filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(BOTableViewCell *cell, NSDictionary<NSString *,id> *bindings) {
+		if (cell.visibilityKey.length > 0) {
+			return cell.visibilityBlock([[NSUserDefaults standardUserDefaults] objectForKey:cell.visibilityKey]);
+		}
+		
+		return YES;
+	}]];
 }
 
 @end

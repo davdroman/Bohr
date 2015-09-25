@@ -32,6 +32,12 @@
 /// An optional destination view controller to push when the cell is pressed.
 @property (nonatomic) UIViewController *destinationViewController;
 
+/// An optional key in order to determine whether the cell should be visible or not depending on its value.
+@property (nonatomic) NSString *visibilityKey;
+
+/// A block determining whether the cell should be visible or not.
+@property (nonatomic, copy) BOOL (^visibilityBlock)(id settingValue);
+
 /** Initializes a new BOTableViewCell object.
  *
  *	@param title The cell title.
