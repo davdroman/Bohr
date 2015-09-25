@@ -18,7 +18,11 @@
 		
 		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 1" key:@"bool_1" handler:nil]];
 		
-		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 2" key:@"bool_2" handler:^(BOSwitchTableViewCell *cell) {
+		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 2 (dependant on switch 1)" key:@"bool_2" handler:^(BOSwitchTableViewCell *cell) {
+			cell.visibilityKey = @"bool_1";
+			cell.visibilityBlock = ^BOOL(id settingValue) {
+				return [settingValue boolValue];
+			};
 			cell.onFooterTitle = @"Switch setting 2 is on";
 			cell.offFooterTitle = @"Switch setting 2 is off";
 		}]];

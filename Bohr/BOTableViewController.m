@@ -15,6 +15,7 @@
 
 @interface BOTableViewController ()
 
+@property (nonatomic, copy) NSArray *lastSections;
 @property (nonatomic) NSArray *sections;
 @property (nonatomic) NSArray *footerViews;
 
@@ -150,6 +151,32 @@
 }
 
 - (void)reloadTableView {
+	
+#pragma mark Dynamic options
+	
+	NSMutableIndexSet *affectedIndexes = [NSMutableIndexSet new];
+	
+	for (NSInteger s = 0; s < self.tableView.numberOfSections; s++) {
+		NSInteger numberOfRows = [self.tableView numberOfRowsInSection:s];
+		
+		if (numberOfRows != [self.sections[s] cells].count) {
+			[affectedIndexes addIndex:s];
+		} else {
+			for (NSInteger r = 0; r < numberOfRows; r++) {
+				UITableViewCell *lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:r inSection:s]];
+				if (![[self.sections[s] cells] containsObject:lastCell]) {
+					[affectedIndexes addIndex:s];
+				}
+			}
+		}
+	}
+	
+	if (affectedIndexes.count > 0) {
+		[self.tableView beginUpdates];
+		[self.tableView reloadSections:affectedIndexes withRowAnimation:UITableViewRowAnimationFade];
+		[self.tableView endUpdates];
+	}
+	
 	[UIView performWithoutAnimation:^{
 		CGPoint previousContentOffset = self.tableView.contentOffset;
 		[self.tableView beginUpdates];

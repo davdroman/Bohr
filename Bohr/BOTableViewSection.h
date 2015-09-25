@@ -30,7 +30,7 @@
 /// The footer title color of the section.
 @property (nonatomic) UIFont *footerTitleFont MZ_APPEARANCE_SELECTOR;
 
-/// The cells for the section.
+/// The visible cells in the section.
 @property (nonatomic, readonly) NSArray *cells;
 
 /** Initializes a new BOTableViewSection object.
