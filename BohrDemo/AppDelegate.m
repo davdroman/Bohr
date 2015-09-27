@@ -26,7 +26,7 @@
 
 - (void)setupDefaults {
 	[[NSUserDefaults standardUserDefaults] registerDefaults:@{
-															  @"bool_1": @YES,
+															  @"bool_1": @NO,
 															  @"bool_2": @NO,
 															  @"text": @"",
 															  @"number": @0,

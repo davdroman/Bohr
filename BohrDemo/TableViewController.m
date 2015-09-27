@@ -18,7 +18,7 @@
 		
 		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 1" key:@"bool_1" handler:nil]];
 		
-		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 2 (dependant on switch 1)" key:@"bool_2" handler:^(BOSwitchTableViewCell *cell) {
+		[section addCell:[BOSwitchTableViewCell cellWithTitle:@"Switch 2" key:@"bool_2" handler:^(BOSwitchTableViewCell *cell) {
 			cell.visibilityKey = @"bool_1";
 			cell.visibilityBlock = ^BOOL(id settingValue) {
 				return [settingValue boolValue];
@@ -37,7 +37,7 @@
 				[weakSelf showInputErrorAlert:error];
 			};
 		}]];
-		
+		 
 		[section addCell:[BONumberTableViewCell cellWithTitle:@"Number" key:@"number" handler:^(BONumberTableViewCell *cell) {
 			cell.textField.placeholder = @"Enter number";
 			cell.numberOfDecimals = 3;

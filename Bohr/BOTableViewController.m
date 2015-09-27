@@ -15,7 +15,6 @@
 
 @interface BOTableViewController ()
 
-@property (nonatomic, copy) NSArray *lastSections;
 @property (nonatomic) NSArray *sections;
 @property (nonatomic) NSArray *footerViews;
 
@@ -150,41 +149,6 @@
 	return cell;
 }
 
-- (void)reloadTableView {
-	
-#pragma mark Dynamic options
-	
-	NSMutableIndexSet *affectedIndexes = [NSMutableIndexSet new];
-	
-	for (NSInteger s = 0; s < self.tableView.numberOfSections; s++) {
-		NSInteger numberOfRows = [self.tableView numberOfRowsInSection:s];
-		
-		if (numberOfRows != [self.sections[s] cells].count) {
-			[affectedIndexes addIndex:s];
-		} else {
-			for (NSInteger r = 0; r < numberOfRows; r++) {
-				UITableViewCell *lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:r inSection:s]];
-				if (![[self.sections[s] cells] containsObject:lastCell]) {
-					[affectedIndexes addIndex:s];
-				}
-			}
-		}
-	}
-	
-	if (affectedIndexes.count > 0) {
-		[self.tableView beginUpdates];
-		[self.tableView reloadSections:affectedIndexes withRowAnimation:UITableViewRowAnimationFade];
-		[self.tableView endUpdates];
-	}
-	
-	[UIView performWithoutAnimation:^{
-		CGPoint previousContentOffset = self.tableView.contentOffset;
-		[self.tableView beginUpdates];
-		[self.tableView endUpdates];
-		self.tableView.contentOffset = previousContentOffset;
-	}];
-}
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BOTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	[cell _updateAppearance];
 	[cell updateAppearance];
@@ -209,6 +173,41 @@
 	if (cell.accessoryType != UITableViewCellAccessoryDisclosureIndicator) {
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
+}
+
+#pragma mark Dynamic options
+
+- (void)reloadTableView {
+	
+	NSMutableIndexSet *affectedIndexes = [NSMutableIndexSet new];
+	
+	for (NSInteger s = 0; s < self.sections.count; s++) {
+		NSInteger numberOfRows = [self.tableView numberOfRowsInSection:s];
+		
+		if (numberOfRows != [self.sections[s] cells].count) {
+			[affectedIndexes addIndex:s];
+		} else {
+			for (NSInteger r = 0; r < numberOfRows; r++) {
+				UITableViewCell *lastCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:r inSection:s]];
+				if ([self.tableView.visibleCells containsObject:lastCell] && ![[self.sections[s] cells] containsObject:lastCell]) {
+					[affectedIndexes addIndex:s];
+				}
+			}
+		}
+	}
+	
+	if (affectedIndexes.count > 0) {
+		[self.tableView beginUpdates];
+		[self.tableView reloadSections:affectedIndexes withRowAnimation:UITableViewRowAnimationFade];
+		[self.tableView endUpdates];
+	}
+	
+	[UIView performWithoutAnimation:^{
+		CGPoint previousContentOffset = self.tableView.contentOffset;
+		[self.tableView beginUpdates];
+		[self.tableView endUpdates];
+		self.tableView.contentOffset = previousContentOffset;
+	}];
 }
 
 #pragma mark Dynamic footers
