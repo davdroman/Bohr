@@ -12,17 +12,28 @@
 
 @implementation BOOptionTableViewCell
 
+@synthesize value = _value;
+
 - (void)setup {
+    self.value = NSIntegerMin;
 	self.selectionStyle = UITableViewCellSelectionStyleDefault;
 }
 
+- (void)setValue:(NSInteger)value {
+    _value = value;
+}
+
+- (NSInteger)value {
+    return _value != NSIntegerMin ? _value : self.indexPath.row;
+}
+
 - (void)wasSelectedFromViewController:(BOTableViewController *)viewController {
-	self.setting.value = @(self.indexPath.row);
+    self.setting.value = @(self.value);
 }
 
 - (void)settingValueDidChange {
-	NSInteger optionIndex = [self.setting.value integerValue];
-	self.accessoryType = (optionIndex == self.indexPath.row) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    BOOL isSelected = [self.setting.value integerValue] == self.value;
+	self.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 @end
