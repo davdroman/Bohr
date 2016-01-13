@@ -60,7 +60,7 @@ There's a bunch of built-in `BOTableViewCell` subclasses ready to be used:
 - `BODateTableViewCell`: manages `NSDate` values representing a certain date. A revealing `UIDatePicker` is used to set the time.
 - `BOTimeTableViewCell`: manages `NSDate` values representing a certain time. A revealing `UIDatePicker` is used to set the time.
 - `BOChoiceTableViewCell`: manages `NSInteger` values (which you can understand as "options" from a `NS_ENUM`) through taps on the cell itself.
-- `BOOptionTableViewCell`: manages a single `NSInteger` value (which you can understand as an "option" from a `NS_ENUM`) depending on its position in its table view section. When selected, a checkmark appears on the right side.
+- `BOOptionTableViewCell`: manages a single `NSInteger` value (which you can understand as an "option" from a `NS_ENUM`), by default depending on its position in its table view section but the setting value can be overridden. When selected, a checkmark appears on the right side.
 - `BOButtonTableViewCell`: allows the user to perform an action when the cell is tapped.
 - `BOStepperTableViewCell`: allows the user to change numeric values by tapping on a +- control.
 

@@ -13,4 +13,7 @@
 /// The string for the footer title when the cell has a checkmark on it.
 @property (nonatomic) NSString *footerTitle;
 
+/// Setting value when this cell gets selected - cell's row index by default
+@property (nonatomic) NSInteger value;
+
 @end
