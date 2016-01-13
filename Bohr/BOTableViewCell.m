@@ -29,8 +29,6 @@
 		self.clipsToBounds = YES;
 		self.textLabel.numberOfLines = 0;
 		self.textLabel.text = title;
-		self.textLabel.highlightedTextColor = [UIColor whiteColor];
-		self.detailTextLabel.highlightedTextColor = [UIColor whiteColor];
 		self.key = key;
 		self.setting = [BOSetting settingWithKey:self.key];
 	}
@@ -89,9 +87,11 @@
 	self.tintColor = self.secondaryColor;
 	
 	self.textLabel.textColor = self.mainColor;
+    self.textLabel.highlightedTextColor = self.mainHighlightedColor;
 	self.textLabel.font = self.mainFont;
 	
 	self.detailTextLabel.textColor = self.secondaryColor;
+    self.detailTextLabel.highlightedTextColor = self.secondaryHighlightedColor;
 	self.detailTextLabel.font = self.secondaryFont;
 	
 	self.selectedBackgroundView = [UIView new];
