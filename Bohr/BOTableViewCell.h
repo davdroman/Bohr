@@ -20,11 +20,17 @@
 /// The main text font for the cell.
 @property (nonatomic) UIFont *mainFont UI_APPEARANCE_SELECTOR;
 
+/// The main text highlighted color for the cell.
+@property (nonatomic) UIColor *mainHighlightedColor UI_APPEARANCE_SELECTOR;
+
 /// The secondary or detail text color for the cell.
 @property (nonatomic) UIColor *secondaryColor UI_APPEARANCE_SELECTOR;
 
 /// The secondary or detail text font for the cell.
 @property (nonatomic) UIFont *secondaryFont UI_APPEARANCE_SELECTOR;
+
+/// The secondary or detail text Highlighted color for the cell.
+@property (nonatomic) UIColor *secondaryHighlightedColor UI_APPEARANCE_SELECTOR;
 
 /// The color for the selected state of the cell.
 @property (nonatomic) UIColor *selectedColor UI_APPEARANCE_SELECTOR;
