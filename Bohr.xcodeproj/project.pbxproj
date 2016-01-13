@@ -52,6 +52,8 @@
 		D5EBE5F21B963C250096AD4C /* BONumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */; };
 		D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */; };
 		D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */; };
+		E49D82DE1C45DC9D006CAB6D /* BOStepperTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E49D82DC1C45DC9D006CAB6D /* BOStepperTableViewCell.h */; };
+		E49D82DF1C45DC9D006CAB6D /* BOStepperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E49D82DD1C45DC9D006CAB6D /* BOStepperTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONumberTableViewCell.m; sourceTree = "<group>"; };
 		D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewController+Private.h"; sourceTree = "<group>"; };
 		D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOSetting+Private.h"; sourceTree = "<group>"; };
+		E49D82DC1C45DC9D006CAB6D /* BOStepperTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOStepperTableViewCell.h; sourceTree = "<group>"; };
+		E49D82DD1C45DC9D006CAB6D /* BOStepperTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOStepperTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,8 @@
 				754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */,
 				754E568B1B1FC16700075B6E /* BOSwitchTableViewCell.h */,
 				754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */,
+				E49D82DC1C45DC9D006CAB6D /* BOStepperTableViewCell.h */,
+				E49D82DD1C45DC9D006CAB6D /* BOStepperTableViewCell.m */,
 				75E02FE11B21F72C009698D3 /* BOTextTableViewCell.h */,
 				75E02FE21B21F72C009698D3 /* BOTextTableViewCell.m */,
 				D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */,
@@ -274,6 +280,7 @@
 				75C7AE291B1AB42A0050C8AA /* BOTableViewCell.h in Headers */,
 				759E1B001B2BC31700AD8F38 /* BOTimeTableViewCell.h in Headers */,
 				75B6CE1E1B375DCA00DADCBD /* BOButtonTableViewCell.h in Headers */,
+				E49D82DE1C45DC9D006CAB6D /* BOStepperTableViewCell.h in Headers */,
 				D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */,
 				D594623C1B90E17D0028F4BD /* BODateTableViewCell.h in Headers */,
 			);
@@ -402,6 +409,7 @@
 				D594623D1B90E17D0028F4BD /* BODateTableViewCell.m in Sources */,
 				759E1B011B2BC31700AD8F38 /* BOTimeTableViewCell.m in Sources */,
 				D59462411B90EA5F0028F4BD /* UILabel+DatePickerCustomization.m in Sources */,
+				E49D82DF1C45DC9D006CAB6D /* BOStepperTableViewCell.m in Sources */,
 				D5CF664D1B8DFF4700FC5F13 /* MZAppearance.m in Sources */,
 				75B6CE1D1B3756D800DADCBD /* BOOptionTableViewCell.m in Sources */,
 				75E19B471B2BCCFE00C03FF6 /* BOTextTableViewCell.m in Sources */,
