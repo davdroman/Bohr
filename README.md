@@ -62,6 +62,7 @@ There's a bunch of built-in `BOTableViewCell` subclasses ready to be used:
 - `BOChoiceTableViewCell`: manages `NSInteger` values (which you can understand as "options" from a `NS_ENUM`) through taps on the cell itself.
 - `BOOptionTableViewCell`: manages a single `NSInteger` value (which you can understand as an "option" from a `NS_ENUM`) depending on its position in its table view section. When selected, a checkmark appears on the right side.
 - `BOButtonTableViewCell`: allows the user to perform an action when the cell is tapped.
+- `BOStepperTableViewCell`: allows the user to change numeric values by tapping on a +- control.
 
 #### Subclassing BOTableViewCell
 
