@@ -16,6 +16,9 @@
 /// The NSUserDefaults value assigned for the key defined on the cell.
 @property (nonatomic, assign) id value;
 
+/// Can be called as many times as desired but the new value will only be applied if the current value is nil
+- (void)setDefaultValue:(id)value;
+
 /// Instantiates a new BOSetting object with a key.
 + (instancetype)settingWithKey:(NSString *)key;
 

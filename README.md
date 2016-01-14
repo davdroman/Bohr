@@ -50,6 +50,14 @@ Here's an example of a really simple setup included in the demo project. Please 
 }
 ```
 
+You can also set default values during boostrapping of your app :
+```obj-c
+[[BOSetting settingWithKey:@"fontfamily"] setDefaultValue:@"verdana"];
+    [[BOSetting settingWithKey:@"fontsize"] setDefaultValue:@(16)];
+```
+These values will only be applied if the current value of these settings are nil, so you can call these methods at every launch without prior-checks.
+
+
 #### Built-in BOTableViewCell's
 
 There's a bunch of built-in `BOTableViewCell` subclasses ready to be used:
