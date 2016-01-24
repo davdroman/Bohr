@@ -10,7 +10,7 @@
 
 @interface BOStepperTableViewCell : BOTableViewCell
 
-/// Teh stepper on the cell
+/// The stepper on the cell
 @property (nonatomic, readonly) UIStepper *stepper;
 
 @end

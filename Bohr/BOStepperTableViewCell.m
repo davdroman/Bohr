@@ -33,5 +33,4 @@
     [self.stepper setValue:[self.setting.value doubleValue]];
 }
 
-
 @end
