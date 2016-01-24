@@ -52,7 +52,7 @@
 		D5EBE5F21B963C250096AD4C /* BONumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */; };
 		D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */; };
 		D5F1D8AB1B3A210E004DA018 /* BOSetting+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */; };
-		E49D82DE1C45DC9D006CAB6D /* BOStepperTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E49D82DC1C45DC9D006CAB6D /* BOStepperTableViewCell.h */; };
+		E49D82DE1C45DC9D006CAB6D /* BOStepperTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E49D82DC1C45DC9D006CAB6D /* BOStepperTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E49D82DF1C45DC9D006CAB6D /* BOStepperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E49D82DD1C45DC9D006CAB6D /* BOStepperTableViewCell.m */; };
 /* End PBXBuildFile section */
 
