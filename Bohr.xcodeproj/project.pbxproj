@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26C60CEF1C5D2B2A00A8AD61 /* BOSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 26C60CED1C5D2B2A00A8AD61 /* BOSettings.h */; };
+		26C60CF01C5D2B2A00A8AD61 /* BOSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C60CEE1C5D2B2A00A8AD61 /* BOSettings.m */; };
 		754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		754E56891B1DFDB400075B6E /* BOSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56871B1DFDB400075B6E /* BOSetting.h */; };
 		754E568A1B1DFDB400075B6E /* BOSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56881B1DFDB400075B6E /* BOSetting.m */; };
@@ -81,6 +83,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26C60CED1C5D2B2A00A8AD61 /* BOSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOSettings.h; sourceTree = "<group>"; };
+		26C60CEE1C5D2B2A00A8AD61 /* BOSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOSettings.m; sourceTree = "<group>"; };
 		754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BOTableViewCell+Subclass.h"; sourceTree = "<group>"; };
 		754E56871B1DFDB400075B6E /* BOSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOSetting.h; sourceTree = "<group>"; };
 		754E56881B1DFDB400075B6E /* BOSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOSetting.m; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 				754E56881B1DFDB400075B6E /* BOSetting.m */,
 				D5F1D8AA1B3A210E004DA018 /* BOSetting+Private.h */,
 				75C7AE011B1AB3280050C8AA /* Supporting Files */,
+				26C60CED1C5D2B2A00A8AD61 /* BOSettings.h */,
+				26C60CEE1C5D2B2A00A8AD61 /* BOSettings.m */,
 			);
 			path = Bohr;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 				75C7AE291B1AB42A0050C8AA /* BOTableViewCell.h in Headers */,
 				759E1B001B2BC31700AD8F38 /* BOTimeTableViewCell.h in Headers */,
 				75B6CE1E1B375DCA00DADCBD /* BOButtonTableViewCell.h in Headers */,
+				26C60CEF1C5D2B2A00A8AD61 /* BOSettings.h in Headers */,
 				E49D82DE1C45DC9D006CAB6D /* BOStepperTableViewCell.h in Headers */,
 				D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */,
 				D594623C1B90E17D0028F4BD /* BODateTableViewCell.h in Headers */,
@@ -413,6 +420,7 @@
 				D5CF664D1B8DFF4700FC5F13 /* MZAppearance.m in Sources */,
 				75B6CE1D1B3756D800DADCBD /* BOOptionTableViewCell.m in Sources */,
 				75E19B471B2BCCFE00C03FF6 /* BOTextTableViewCell.m in Sources */,
+				26C60CF01C5D2B2A00A8AD61 /* BOSettings.m in Sources */,
 				75E19B451B2BC76100C03FF6 /* BOChoiceTableViewCell.m in Sources */,
 				D5CF664F1B8DFF4700FC5F13 /* NSInvocation+Copy.m in Sources */,
 			);

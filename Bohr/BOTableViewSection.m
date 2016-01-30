@@ -7,6 +7,7 @@
 //
 
 #import "BOTableViewSection.h"
+#import "BOSettings.h"
 
 @interface BOTableViewSection ()
 
@@ -57,7 +58,7 @@
 - (NSArray *)cells {
 	return [self.rawCells filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(BOTableViewCell *cell, NSDictionary<NSString *,id> *bindings) {
 		if (cell.visibilityKey.length > 0) {
-			return cell.visibilityBlock([[NSUserDefaults standardUserDefaults] objectForKey:cell.visibilityKey]);
+			return cell.visibilityBlock([[BOSettings sharedSettings].userDefaults objectForKey:cell.visibilityKey]);
 		}
 		
 		return YES;

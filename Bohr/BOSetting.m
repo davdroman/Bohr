@@ -7,6 +7,7 @@
 //
 
 #import "BOSetting+Private.h"
+#import "BOSettings.h"
 
 @implementation BOSetting
 
@@ -14,7 +15,7 @@
 	if (key) {
 		if (self = [super init]) {
 			_key = key;
-			[[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:self.key options:NSKeyValueObservingOptionNew context:nil];
+			[[BOSettings sharedSettings].userDefaults addObserver:self forKeyPath:self.key options:NSKeyValueObservingOptionNew context:nil];
 		}
 	}
 	
@@ -31,12 +32,14 @@
 }
 
 - (id)value {
-	return [[NSUserDefaults standardUserDefaults] objectForKey:self.key];
+	return [[BOSettings sharedSettings].userDefaults objectForKey:self.key];
 }
 
 - (void)setValue:(id)value {
 	if (self.value != value) {
-		[[NSUserDefaults standardUserDefaults] setObject:value forKey:self.key];
+        [[BOSettings sharedSettings].userDefaults willChangeValueForKey:self.key];
+		[[BOSettings sharedSettings].userDefaults setObject:value forKey:self.key];
+        [[BOSettings sharedSettings].userDefaults didChangeValueForKey:self.key];
 	}
 }
 
@@ -46,7 +49,7 @@
 }
 
 - (void)dealloc {
-	if (self.key) [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:self.key];
+	if (self.key) [[BOSettings sharedSettings].userDefaults removeObserver:self forKeyPath:self.key];
 }
 
 @end
