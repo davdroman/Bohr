@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		754E56891B1DFDB400075B6E /* BOSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56871B1DFDB400075B6E /* BOSetting.h */; };
+		754E56501B1B461700075B6E /* BOTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E564F1B1B461700075B6E /* BOTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		754E56891B1DFDB400075B6E /* BOSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E56871B1DFDB400075B6E /* BOSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		754E568A1B1DFDB400075B6E /* BOSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E56881B1DFDB400075B6E /* BOSetting.m */; };
 		754E568D1B1FC16700075B6E /* BOSwitchTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 754E568B1B1FC16700075B6E /* BOSwitchTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		754E568E1B1FC16700075B6E /* BOSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754E568C1B1FC16700075B6E /* BOSwitchTableViewCell.m */; };
@@ -47,7 +47,7 @@
 		D5CF66521B8E491A00FC5F13 /* UIColor+Bohr.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CF66511B8E491A00FC5F13 /* UIColor+Bohr.m */; };
 		D5D00B6E1B8FD14500ADCAB2 /* OptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D00B6D1B8FD14500ADCAB2 /* OptionsTableViewController.m */; };
 		D5D00B721B8FE63E00ADCAB2 /* BOTableViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D00B711B8FE63E00ADCAB2 /* BOTableViewCell+Private.h */; };
-		D5D499F21B9749AB0015C617 /* BOTextTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D5D499F21B9749AB0015C617 /* BOTextTableViewCell+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D499F01B9749AB0015C617 /* BOTextTableViewCell+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5EBE5F11B963C250096AD4C /* BONumberTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D5EBE5EF1B963C250096AD4C /* BONumberTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5EBE5F21B963C250096AD4C /* BONumberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EBE5F01B963C250096AD4C /* BONumberTableViewCell.m */; };
 		D5F1D8A91B3A1EF1004DA018 /* BOTableViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F1D8A81B3A1EF1004DA018 /* BOTableViewController+Private.h */; };
