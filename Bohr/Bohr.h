@@ -27,3 +27,6 @@ FOUNDATION_EXPORT const unsigned char BohrVersionString[];
 #import <Bohr/BOOptionTableViewCell.h>
 #import <Bohr/BOButtonTableViewCell.h>
 #import <Bohr/BOStepperTableViewCell.h>
+
+#import <Bohr/BOTableViewCell+Subclass.h>
+#import <Bohr/BOTextTableViewCell+Subclass.h>
