@@ -55,6 +55,7 @@
 
 - (void)addSection:(BOTableViewSection *)section {
 	self.sections = [self.sections arrayByAddingObject:section];
+    _footerViews = nil;
 }
 
 // Apple pls http://blog.supertop.co/post/80781694515/viewmightappear
