@@ -108,6 +108,7 @@
 				D5A01CFB1E0492EF00007547 /* Frameworks */,
 				D5A01CFC1E0492EF00007547 /* Headers */,
 				D5A01CFD1E0492EF00007547 /* Resources */,
+				D5A01D191E04948A00007547 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -125,6 +126,7 @@
 				D5A01D041E0492F000007547 /* Sources */,
 				D5A01D051E0492F000007547 /* Frameworks */,
 				D5A01D061E0492F000007547 /* Resources */,
+				D5A01D1A1E0494A500007547 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -190,6 +192,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D5A01D191E04948A00007547 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
+		};
+		D5A01D1A1E0494A500007547 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D5A01CFA1E0492EF00007547 /* Sources */ = {
@@ -394,6 +427,7 @@
 				D5A01D151E0492F000007547 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5A01D161E0492F000007547 /* Build configuration list for PBXNativeTarget "BohrTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +436,7 @@
 				D5A01D181E0492F000007547 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
