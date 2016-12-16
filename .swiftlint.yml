@@ -1,0 +1,45 @@
+opt_in_rules:
+    - empty_count
+included:
+    - Bohr
+    - BohrDemo
+    - BohrTests
+disabled_rules:
+    - conditional_binding_cascade
+    - force_cast
+    - force_try
+
+leading_whitespace: warning
+trailing_whitespace: warning
+
+line_length:
+    warning: 175
+
+function_body_length:
+    warning: 300
+    error: 400
+
+type_body_length:
+    warning: 300
+    error: 400
+
+file_length:
+    warning: 500
+    error: 1200
+
+type_name:
+    min_length: 3
+    max_length:
+        warning: 40
+        error: 50
+
+variable_name:
+    min_length:
+        error: 4
+    excluded:
+        - lhs
+        - rhs
+        - at
+        - t
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
