@@ -11,7 +11,7 @@
 @implementation TableViewController
 
 - (void)setup {
-	
+	[super setup];
 	self.title = @"Bohr";
 	
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:@"Section 1" handler:^(BOTableViewSection *section) {

@@ -23,8 +23,7 @@
 @implementation BOTableViewController
 
 - (void)commonInit {
-	self.sections = [NSArray new];
-	
+
 	self.tableView.estimatedRowHeight = 55;
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -273,6 +272,8 @@
 
 #pragma mark Subclassing
 
-- (void)setup {}
+- (void)setup {
+	self.sections = [NSArray new];
+}
 
 @end

@@ -11,7 +11,7 @@
 @implementation OptionsTableViewController
 
 - (void)setup {
-	
+	[super setup];
 	self.title = @"Choice options";
 	
 	[self addSection:[BOTableViewSection sectionWithHeaderTitle:nil handler:^(BOTableViewSection *section) {
