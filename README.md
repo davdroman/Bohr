@@ -1,3 +1,10 @@
+> **THIS PROJECT IS NO LONGER MAINTAINED. HERE ARE SOME SUITABLE ALTERNATIVES:**
+>
+> - https://github.com/xmartlabs/Eureka
+> - https://github.com/neoneye/SwiftyFORM
+
+---
+
 <p align="center">
 	<img src="Assets/header.png" alt="Header" width="500px" />
 </p>
