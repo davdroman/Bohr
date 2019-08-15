@@ -40,6 +40,12 @@
 	}
 }
 
+- (void)setDefaultValue:(id)value {
+    if (!self.value) {
+        self.value = value;
+    }
+}
+
 - (void)setValueDidChangeBlock:(void (^)(void))valueDidChangeBlock {
 	_valueDidChangeBlock = valueDidChangeBlock;
 	if (valueDidChangeBlock) valueDidChangeBlock();
