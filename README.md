@@ -1,5 +1,6 @@
 > **THIS PROJECT IS NO LONGER MAINTAINED. HERE ARE SOME SUITABLE ALTERNATIVES:**
 >
+> - [SwiftUI Form](https://developer.apple.com/documentation/swiftui/form)
 > - https://github.com/xmartlabs/Eureka
 > - https://github.com/neoneye/SwiftyFORM
 
